@@ -1,0 +1,2227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>JEE (Main) 2027 Mock Test</title>
+
+  <!-- KaTeX for Math Rendering -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+
+  <style>
+    /* ===== Base & Variables ===== */
+    :root {
+      --navy: #0e2a52;
+      --strip: #375f8c;
+      --orange-txt: #f39c33;
+      --green: #5cb85c;
+      --amber: #f0ad4e;
+      --blue: #4678b2;
+      --blue-dk: #3a659a;
+      --pill: #3d95d8;
+      --arrow: #2253f5;
+      --grey-bar: #f5f5f5;
+      --text: #333;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      margin: 0;
+      min-height: 100%;
+    }
+
+    body {
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-size: 15px;
+      color: var(--text);
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    .hide {
+      display: none !important;
+    }
+
+    button {
+      font-family: inherit;
+      cursor: pointer;
+    }
+
+    /* ===== Top Strip & Brand Header ===== */
+    .topline {
+      height: 3px;
+      background: #000;
+    }
+
+    .strip {
+      background: var(--strip);
+      height: 26px;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      padding: 0 20%;
+      font-size: 13px;
+    }
+
+    .strip a {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      text-decoration: none;
+      color: #fff;
+    }
+
+    .strip .ico {
+      background: #4caf50;
+      width: 18px;
+      height: 18px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 10px 2.5%;
+      background: #fff;
+      min-height: 110px;
+    }
+
+    .brand .left {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .brand .logo {
+      width: 66px;
+      height: 66px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 35% 35%, #f6a443, #e8821e 60%, #c86a10);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-weight: 700;
+      font-size: 22px;
+      flex: none;
+      overflow: hidden;
+    }
+
+    .brand .logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      background: #fff;
+    }
+
+    .brand .name {
+      font-size: 30px;
+      font-weight: 700;
+      color: #2b4c8c;
+      line-height: 1.1;
+    }
+
+    .brand .tag {
+      display: inline-block;
+      margin-top: 4px;
+      background: #3c9a3c;
+      color: #fff;
+      font-size: 12px;
+      font-style: italic;
+      font-weight: 700;
+      padding: 1px 6px;
+    }
+
+    .brand .divider {
+      width: 3px;
+      align-self: stretch;
+      background: #555;
+      margin: 0 10px;
+    }
+
+    .brand .mid {
+      font-size: 24px;
+      color: #333;
+      line-height: 1.15;
+    }
+
+    .brand .mid small {
+      display: block;
+      font-size: 16px;
+      color: #555;
+    }
+
+    .langpill {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: linear-gradient(90deg, #5f5bd6, #7b4fd0);
+      color: #fff;
+      border-radius: 26px;
+      padding: 10px 18px;
+      font-size: 16px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+      white-space: nowrap;
+    }
+
+    .langpill .g {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: #fff;
+      color: #6a52d4;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    /* ===== Grey Info Strip ===== */
+    .info {
+      background:
+        linear-gradient(115deg, transparent 48%, rgba(0, 0, 0, 0.06) 49%, transparent 50%) 0 0 / 340px 100%,
+        linear-gradient(65deg, transparent 48%, rgba(0, 0, 0, 0.05) 49%, transparent 50%) 120px 0 / 420px 100%,
+        #f7f7f7;
+    }
+
+    .info .in {
+      max-width: 1300px;
+      margin: 0 auto;
+      padding: 6px 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      min-height: 82px;
+      background: rgba(248, 248, 248, 0.85);
+    }
+
+    .info .box {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .ibox {
+      width: 88px;
+      height: 78px;
+      border: 2px solid #444;
+      background: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex: none;
+    }
+
+    .kv {
+      font-size: 16px;
+      line-height: 1.3;
+      color: #333;
+    }
+
+    .kv b {
+      color: var(--orange-txt);
+      font-weight: 700;
+    }
+
+    .kv .lbl {
+      display: inline-block;
+      min-width: 150px;
+    }
+
+    .timepill {
+      background: var(--pill);
+      color: #fff;
+      border-radius: 12px;
+      padding: 1px 10px;
+      font-variant-numeric: tabular-nums;
+      display: inline-block;
+    }
+
+    .timepill.low {
+      background: #d9534f;
+    }
+
+    .sel {
+      font: inherit;
+      font-size: 16px;
+      padding: 7px 12px;
+      border: 1px solid #bbb;
+      background: #fff;
+      min-width: 220px;
+      border-radius: 2px;
+    }
+
+    /* ===== Sections Layout ===== */
+    #login,
+    #exam {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+
+    #results {
+      flex: 1;
+    }
+
+    /* ===== Login View ===== */
+    .navyzone {
+      flex: 1;
+      background:
+        radial-gradient(circle at 18% 35%, rgba(255, 255, 255, 0.05) 0 22%, transparent 23%),
+        repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.035) 0 2px, transparent 2px 64px),
+        linear-gradient(135deg, #25406a, #1b2f50 60%, #1a2c4b);
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 28px 16px;
+      border-bottom: 5px solid #fff;
+    }
+
+    .logincard {
+      background: rgba(242, 240, 240, 0.97);
+      width: 400px;
+      max-width: 100%;
+      padding: 22px 24px 26px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+    }
+
+    .logincard h3 {
+      margin: 0 0 14px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid #ddd;
+      font-size: 20px;
+      color: #333;
+    }
+
+    .logincard label {
+      display: block;
+      font-size: 16px;
+      margin: 16px 0 6px;
+    }
+
+    .logincard label .opt-note {
+      font-size: 13px;
+      color: #777;
+    }
+
+    .logincard input {
+      width: 100%;
+      font: inherit;
+      font-size: 16px;
+      padding: 9px 14px;
+      border: 1px solid #ccc;
+      background: #e8e4e4;
+      color: #333;
+    }
+
+    .btn-login {
+      width: 100%;
+      margin-top: 22px;
+      background: #4972a5;
+      color: #fff;
+      border: 0;
+      padding: 12px;
+      font-size: 16px;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+
+    .btn-login:hover {
+      background: #3d6290;
+    }
+
+    .hint {
+      color: var(--orange-txt);
+      text-align: center;
+      font-weight: 700;
+      font-size: 14px;
+      margin-top: 12px;
+    }
+
+    footer {
+      background: var(--navy);
+      color: #fff;
+      text-align: center;
+      font-size: 13.5px;
+      padding: 18px 10px;
+      margin-top: auto;
+    }
+
+    /* ===== Instructions View ===== */
+    .ititle {
+      font-size: 24px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      color: var(--navy);
+    }
+
+    .instr {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 18px 16px 30px;
+      font-size: 15.5px;
+      line-height: 1.45;
+      color: #222;
+    }
+
+    .instr h2 {
+      text-align: center;
+      font-size: 20px;
+      margin: 16px 0 8px;
+    }
+
+    .instr h3 {
+      text-decoration: underline;
+      font-size: 20px;
+      margin: 16px 0 8px;
+    }
+
+    .instr ol {
+      margin: 0;
+      padding-left: 44px;
+    }
+
+    .instr ol ol {
+      list-style: lower-alpha;
+      padding-left: 44px;
+    }
+
+    .instr ol.sym {
+      list-style: decimal;
+    }
+
+    .instr ol.sym li {
+      margin: 14px 0;
+    }
+
+    .instr ol.sym li .st {
+      vertical-align: middle;
+      margin-right: 6px;
+    }
+
+    .instr .note {
+      color: #a8352f;
+      border-top: 1px solid #ddd;
+      border-bottom: 1px solid #ddd;
+      padding: 22px 0;
+      margin-top: 20px;
+    }
+
+    .instr .decl {
+      padding: 20px 0;
+      border-bottom: 1px solid #ddd;
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      cursor: pointer;
+    }
+
+    .instr .decl input {
+      margin-top: 4px;
+    }
+
+    .btn-proceed {
+      display: block;
+      margin: 22px auto 0;
+      width: 370px;
+      max-width: 100%;
+      background: #5c9b4f;
+      color: #fff;
+      border: 1px solid #4d8a42;
+      padding: 9px;
+      font-size: 16px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+    }
+
+    .btn-proceed:disabled {
+      opacity: 0.55;
+      cursor: not-allowed;
+    }
+
+    .rarr {
+      display: inline-flex;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: var(--arrow);
+      color: #fff;
+      align-items: center;
+      justify-content: center;
+      vertical-align: middle;
+      font-size: 20px;
+      font-weight: 700;
+      border: 0;
+      padding: 0;
+      flex: none;
+    }
+
+    /* ===== Question Status Symbols ===== */
+    .st {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 50px;
+      height: 36px;
+      font-size: 16px;
+      color: #fff;
+      position: relative;
+      flex: none;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .st.nv {
+      color: #333;
+      background: linear-gradient(#fafafa, #dcdcdc);
+      border: 1px solid #b5b5b5;
+      border-radius: 5px;
+    }
+
+    .st.na {
+      background: linear-gradient(#e0612a, #c64716);
+      clip-path: polygon(0 0, 100% 10%, 100% 88%, 0 100%);
+    }
+
+    .st.an {
+      background: linear-gradient(#6fcd45, #4ea72b);
+      clip-path: polygon(0 0, 100% 10%, 100% 90%, 0 100%);
+    }
+
+    .st.mr,
+    .st.am {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 40% 30%, #7d5bd0, #4a2690 60%, #2f1566);
+    }
+
+    .st.am::after {
+      content: "";
+      position: absolute;
+      right: -2px;
+      bottom: -1px;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: #7ee35a;
+      border: 1px solid #4ea72b;
+      box-shadow: inset 0 0 0 4px #7ee35a, inset 0 0 0 5px #2f7a1c;
+    }
+
+    .st.sm {
+      width: 34px;
+      height: 32px;
+      font-size: 13px;
+    }
+
+    .st.sm.mr,
+    .st.sm.am {
+      width: 34px;
+      height: 34px;
+    }
+
+    /* ===== Exam Interface ===== */
+    .exam-main {
+      max-width: 1300px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 12px 16px 20px;
+      display: flex;
+      gap: 40px;
+      align-items: flex-start;
+      flex: 1;
+    }
+
+    .qcol {
+      flex: 1;
+      min-width: 0;
+      position: relative;
+    }
+
+    .sections {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin: 4px 0 6px;
+    }
+
+    .sections button {
+      background: #fff;
+      color: #333;
+      border: 1px solid #ccc;
+      padding: 7px 14px;
+      font-size: 13.5px;
+      font-weight: 700;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+    }
+
+    .sections button.on {
+      background: var(--blue);
+      border-color: var(--blue);
+      color: #fff;
+    }
+
+    .qtitle {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 2px solid #444;
+      padding: 18px 0 10px;
+    }
+
+    .qtitle b {
+      font-size: 21px;
+      color: #222;
+    }
+
+    .qtitle .meta {
+      font-size: 13px;
+      color: #666;
+      margin-left: 10px;
+    }
+
+    .qarea {
+      padding: 12px 6px 18px;
+      font: 19px/1.75 "Times New Roman", Georgia, serif;
+      color: #222;
+      min-height: 260px;
+      max-height: calc(100vh - 470px);
+      overflow-y: auto;
+    }
+
+    .qarea .qtext table {
+      border-collapse: collapse;
+      margin: 6px 0;
+    }
+
+    .qarea .qtext td,
+    .qarea .qtext th {
+      border: 1px solid #888;
+      padding: 4px 8px;
+      font-size: 17px;
+    }
+
+    .optlbl {
+      font-weight: 700;
+      font-size: 17px;
+      margin: 12px 0 4px;
+    }
+
+    .opt {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 4px 6px;
+      cursor: pointer;
+      border-radius: 3px;
+    }
+
+    .opt:hover {
+      background: #f3f6fa;
+    }
+
+    .opt input {
+      width: 17px;
+      height: 17px;
+      margin-top: 14px;
+      flex: none;
+      accent-color: #2b5ea3;
+    }
+
+    .opt .on {
+      font-size: 30px;
+      line-height: 1.2;
+      min-width: 34px;
+    }
+
+    .opt .ot {
+      padding-top: 6px;
+    }
+
+    .numbox {
+      margin-top: 16px;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 15px;
+    }
+
+    .numbox input {
+      font-size: 18px;
+      padding: 7px 10px;
+      border: 1px solid #888;
+      width: 230px;
+      max-width: 100%;
+    }
+
+    .keypad {
+      display: grid;
+      grid-template-columns: repeat(3, 62px);
+      gap: 5px;
+      margin-top: 10px;
+    }
+
+    .keypad button {
+      background: linear-gradient(#fdfdfd, #e2e2e2);
+      border: 1px solid #b5b5b5;
+      border-radius: 3px;
+      padding: 7px 0;
+      font-size: 15px;
+    }
+
+    .keypad .wide {
+      grid-column: span 2;
+    }
+
+    .qfoot {
+      border-top: 2px solid #444;
+      margin-top: 4px;
+    }
+
+    .btnrow {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      padding: 12px 16px;
+    }
+
+    .b {
+      border: 1px solid transparent;
+      color: #fff;
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: 1.4px;
+      text-transform: uppercase;
+      padding: 8px 14px;
+      border-radius: 0;
+    }
+
+    .b.green {
+      background: var(--green);
+      border-color: #4cae4c;
+    }
+
+    .b.green:hover {
+      background: #449d44;
+    }
+
+    .b.amber {
+      background: var(--amber);
+      border-color: #eea236;
+    }
+
+    .b.amber:hover {
+      background: #ec971f;
+    }
+
+    .b.blue {
+      background: var(--blue);
+      border-color: #3f6ca2;
+    }
+
+    .b.blue:hover {
+      background: var(--blue-dk);
+    }
+
+    .b.white {
+      background: #fff;
+      color: #222;
+      border-color: #ccc;
+    }
+
+    .b.white:hover {
+      background: #eee;
+    }
+
+    .b.white:disabled {
+      color: #999;
+      cursor: not-allowed;
+      background: #fff;
+    }
+
+    .navbar {
+      background: var(--grey-bar);
+      padding: 10px 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .navbar .pair {
+      display: flex;
+    }
+
+    .navbar .pair .b + .b {
+      border-left: 0;
+    }
+
+    .collapse {
+      position: absolute;
+      right: -33px;
+      top: 230px;
+      width: 24px;
+      height: 48px;
+      background: #000;
+      color: #fff;
+      border: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      padding: 0;
+      z-index: 5;
+    }
+
+    /* ===== Question Palette Sidebar ===== */
+    .pcol {
+      width: 400px;
+      flex: none;
+    }
+
+    .legend {
+      border: 3px dotted #555;
+      padding: 16px 18px;
+      display: grid;
+      grid-template-columns: auto 1fr auto 1fr;
+      gap: 14px 12px;
+      align-items: center;
+      font-size: 17px;
+      color: #444;
+      margin-top: 12px;
+    }
+
+    .legend .full {
+      grid-column: 2 / span 3;
+    }
+
+    .psec {
+      font-weight: 700;
+      font-size: 15px;
+      margin: 18px 0 8px;
+      background: var(--blue);
+      color: #fff;
+      padding: 6px 10px;
+      letter-spacing: 0.5px;
+    }
+
+    .palette {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(46px, 1fr));
+      gap: 6px 4px;
+      max-height: 320px;
+      overflow-y: auto;
+      padding: 6px 4px;
+    }
+
+    .palette .st {
+      width: 46px;
+      height: 36px;
+      font-size: 15px;
+      cursor: pointer;
+      border: 0;
+      padding: 0;
+    }
+
+    .palette .st.nv {
+      border: 1px solid #b5b5b5;
+    }
+
+    .palette .st.mr,
+    .palette .st.am {
+      width: 40px;
+      height: 40px;
+      margin: 0 auto;
+    }
+
+    .palette .st.cur {
+      outline: 2px solid #2253f5;
+      outline-offset: 2px;
+    }
+
+    .pcol.collapsed {
+      display: none;
+    }
+
+    .palclose {
+      display: none;
+    }
+
+    /* ===== Modal Dialog ===== */
+    .modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 60;
+      padding: 14px;
+    }
+
+    .mcard {
+      background: #fff;
+      width: 720px;
+      max-width: 100%;
+      max-height: 92vh;
+      overflow: auto;
+      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.4);
+    }
+
+    .mhead {
+      background: var(--navy);
+      color: #fff;
+      padding: 12px 16px;
+      font-weight: 700;
+      font-size: 17px;
+      letter-spacing: 0.5px;
+    }
+
+    .mbody {
+      padding: 16px;
+    }
+
+    .mfoot {
+      padding: 0 16px 16px;
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    table.t {
+      border-collapse: collapse;
+      width: 100%;
+      font-size: 14.5px;
+    }
+
+    table.t th {
+      background: #e9eef5;
+      color: #222;
+    }
+
+    table.t th,
+    table.t td {
+      border: 1px solid #c9c9c9;
+      padding: 7px 9px;
+      text-align: center;
+    }
+
+    table.t .l {
+      text-align: left;
+    }
+
+    .tw {
+      overflow-x: auto;
+    }
+
+    /* ===== Results & Scorecard View ===== */
+    .res {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 16px 16px 30px;
+      width: 100%;
+    }
+
+    .res h2 {
+      color: var(--navy);
+      font-size: 22px;
+      letter-spacing: 1px;
+      margin: 20px 0 10px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+      gap: 12px;
+      margin: 10px 0;
+    }
+
+    .card {
+      border: 1px solid #ccc;
+      background: #fafafa;
+      padding: 12px 14px;
+    }
+
+    .card .v {
+      font-size: 26px;
+      font-weight: 700;
+      color: var(--navy);
+    }
+
+    .card .l {
+      font-size: 13.5px;
+      color: #555;
+    }
+
+    .card.g .v {
+      color: #3c8f2a;
+    }
+
+    .card.r .v {
+      color: #c64716;
+    }
+
+    .card.o .v {
+      color: #d98a12;
+    }
+
+    .ok {
+      color: #3c8f2a;
+      font-weight: 700;
+    }
+
+    .bad {
+      color: #c64716;
+      font-weight: 700;
+    }
+
+    .skip {
+      color: #777;
+    }
+
+    .filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin: 10px 0;
+    }
+
+    .filters .b {
+      font-size: 13px;
+      padding: 6px 10px;
+    }
+
+    details summary {
+      cursor: pointer;
+      color: #2b5ea3;
+      font-weight: 700;
+    }
+
+    .sol {
+      text-align: left;
+      font: 16px/1.6 "Times New Roman", Georgia, serif;
+      padding: 6px 2px;
+    }
+
+    /* ===== Responsive Media Queries ===== */
+    @media (max-width: 1100px) {
+      .brand .mid,
+      .brand .divider {
+        display: none;
+      }
+
+      .pcol {
+        width: 330px;
+      }
+
+      .legend {
+        font-size: 15px;
+      }
+    }
+
+    @media (max-width: 860px) {
+      .strip {
+        padding: 0 12px;
+      }
+
+      .brand {
+        min-height: 0;
+        padding: 8px 12px;
+      }
+
+      .brand .logo {
+        width: 46px;
+        height: 46px;
+        font-size: 16px;
+      }
+
+      .brand .name {
+        font-size: 19px;
+      }
+
+      .langpill {
+        display: none;
+      }
+
+      .info .in {
+        flex-wrap: wrap;
+        min-height: 0;
+      }
+
+      .ibox {
+        width: 60px;
+        height: 56px;
+      }
+
+      .ibox svg {
+        transform: scale(0.7);
+      }
+
+      .kv {
+        font-size: 14px;
+      }
+
+      .kv .lbl {
+        min-width: 118px;
+      }
+
+      .sel {
+        min-width: 0;
+      }
+
+      .exam-main {
+        gap: 0;
+      }
+
+      .pcol {
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        width: min(380px, 92vw);
+        background: #fff;
+        z-index: 50;
+        padding: 10px 12px;
+        overflow-y: auto;
+        box-shadow: -3px 0 10px rgba(0, 0, 0, 0.35);
+        display: none;
+      }
+
+      .pcol.palopen {
+        display: block;
+      }
+
+      .palclose {
+        display: block;
+        margin-bottom: 6px;
+      }
+
+      .collapse {
+        position: fixed;
+        right: 0;
+        top: auto;
+        bottom: 150px;
+        font-size: 0;
+      }
+
+      .collapse::before {
+        content: "<";
+        font-size: 20px;
+      }
+
+      .qarea {
+        max-height: none;
+        min-height: 0;
+        font-size: 17.5px;
+      }
+
+      .b {
+        font-size: 12.5px;
+        letter-spacing: 0.6px;
+        padding: 8px 9px;
+      }
+
+      .btnrow {
+        padding: 10px 0;
+      }
+
+      .navbar {
+        padding: 8px;
+      }
+
+      .palette {
+        max-height: none;
+      }
+
+      .ititle {
+        font-size: 18px;
+      }
+
+      .instr ol,
+      .instr ol ol {
+        padding-left: 24px;
+      }
+    }
+
+    @media print {
+      .topline,
+      .strip,
+      .langpill,
+      .noprint {
+        display: none !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ============ TOP BAR & BRAND HEADER ============ -->
+  <div class="topline"></div>
+  <div class="strip">
+    <a href="#" id="homeLink">
+      <span class="ico">
+        <svg width="11" height="11" viewBox="0 0 16 16" fill="#fff">
+          <circle cx="8" cy="4.5" r="3.5"></circle>
+          <path d="M1 16c0-4 3-6.5 7-6.5s7 2.5 7 6.5z"></path>
+        </svg>
+      </span>
+      Home
+    </a>
+  </div>
+
+  <header class="brand">
+    <div class="left">
+      <div class="logo" id="brandLogo">JM</div>
+      <div>
+        <div class="name" id="brandName">JEE Main Mock Test</div>
+        <span class="tag" id="brandTag">Practice CBT</span>
+      </div>
+      <div class="divider"></div>
+      <div class="mid">
+        Joint Entrance Examination
+        <small>JEE (Main) 2027 · Practice Mock Test</small>
+      </div>
+    </div>
+    <div class="langpill"><span class="g">A</span> English ▾</div>
+  </header>
+
+  <!-- ============ 1. LOGIN SECTION ============ -->
+  <section id="login">
+    <div class="info">
+      <div class="in">
+        <div class="box">
+          <div class="ibox">
+            <svg width="62" height="46" viewBox="0 0 62 46">
+              <rect x="9" y="3" width="44" height="30" rx="3" fill="none" stroke="#444" stroke-width="4"></rect>
+              <rect x="2" y="36" width="58" height="6" rx="2" fill="#444"></rect>
+            </svg>
+          </div>
+          <div class="kv">
+            System Name : <b>[C0001]</b><br>
+            <b>[Contact Invigilator if the Name displayed on the screen is not yours]</b>
+          </div>
+        </div>
+
+        <div class="box">
+          <div class="ibox">
+            <svg width="50" height="60" viewBox="0 0 50 60">
+              <circle cx="25" cy="17" r="13" fill="#444"></circle>
+              <path d="M2 58c0-16 10-25 23-25s23 9 23 25z" fill="#444"></path>
+            </svg>
+          </div>
+          <div class="kv">
+            Candidate Name : <b id="lgName">[Your Name]</b><br>
+            Subject Name &nbsp;&nbsp;&nbsp;: <b>[JEE Main 2027 Mock]</b>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="navyzone">
+      <form class="logincard" id="loginForm" autocomplete="off">
+        <h3>Login (Mock Test)</h3>
+        <label for="uName">Candidate Name</label>
+        <input id="uName" maxlength="60" placeholder="Enter your name">
+
+        <label for="uRoll">Roll Number <span class="opt-note">(optional)</span></label>
+        <input id="uRoll" maxlength="20" placeholder="Enter roll number">
+
+        <button class="btn-login" type="submit">LOGIN</button>
+        <div class="hint" id="loginHint">Click Login To proceed</div>
+      </form>
+    </div>
+  </section>
+
+  <!-- ============ 2. INSTRUCTIONS SECTION ============ -->
+  <section id="instructions" class="hide">
+    <div class="info">
+      <div class="in">
+        <div class="ititle">GENERAL INSTRUCTIONS</div>
+        <div class="kv" style="font-size: 15px;">
+          Choose Your Default Language<br>
+          <select class="sel" aria-label="Default language">
+            <option>English</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <div class="instr">
+      <h2>Please read the instructions carefully</h2>
+
+      <h3>General Instructions:</h3>
+      <ol>
+        <li>Total duration of JEE (Main) 2027 Mock Test (Paper 1: B.E./B.Tech.) is 180 min. The paper has 75 questions: Physics (Q1–25), Chemistry (Q26–50) and Mathematics (Q51–75). Each subject has Section A (20 MCQs, one correct option) and Section B (5 Numerical questions). All questions are compulsory.</li>
+        <li>Marking scheme: +4 for each correct answer, −1 for each incorrect answer and 0 for unanswered questions, in both MCQ and Numerical questions.</li>
+        <li>The countdown timer in the top right corner of the screen will display the remaining time available for you to complete the examination. When the timer reaches zero, the examination will end by itself. You will not be required to end or submit your examination.</li>
+        <li>
+          The Questions Palette displayed on the right side of screen will show the status of each question using one of the following symbols:
+          <ol class="sym">
+            <li><span class="st sm nv"></span> You have not visited the question yet.</li>
+            <li><span class="st sm na"></span> You have not answered the question.</li>
+            <li><span class="st sm an"></span> You have answered the question.</li>
+            <li><span class="st sm mr"></span> You have NOT answered the question, but have marked the question for review.</li>
+            <li><span class="st sm am"></span> The question(s) "Answered and Marked for Review" will be considered for evaluation.</li>
+          </ol>
+        </li>
+        <li>You can click on the "&gt;" arrow which appears to the left of question palette to collapse the question palette thereby maximizing the question window. To view the question palette again, you can click on "&lt;" which appears on the right side of question window.</li>
+        <li>You can click on <span class="rarr">↓</span> to navigate to the bottom and <span class="rarr">↑</span> to navigate to the top of the question area, without scrolling.</li>
+      </ol>
+
+      <h3>Navigating to a Question:</h3>
+      <ol start="7">
+        <li>
+          To answer a question, do the following:
+          <ol>
+            <li>Click on the question number in the Question Palette at the right of your screen to go to that numbered question directly. Note that using this option does NOT save your answer to the current question.</li>
+            <li>Click on <b>Save &amp; Next</b> to save your answer for the current question and then go to the next question.</li>
+            <li>Click on <b>Mark for Review &amp; Next</b> to save your answer for the current question, mark it for review, and then go to the next question.</li>
+          </ol>
+        </li>
+      </ol>
+
+      <h3>Answering a Question:</h3>
+      <ol start="8">
+        <li>
+          Procedure for answering a multiple choice type question:
+          <ol>
+            <li>To select your answer, click on the button of one of the options.</li>
+            <li>To deselect your chosen answer, click on the <b>Clear</b> button.</li>
+            <li>To change your chosen answer, click on the button of another option.</li>
+            <li>To save your answer, you MUST click on the <b>Save &amp; Next</b> button.</li>
+            <li>To mark the question for review, click on the <b>Mark for Review &amp; Next</b> button.</li>
+          </ol>
+        </li>
+        <li>Procedure for answering a numerical value type question: type the answer in the box using the keyboard or the on-screen keypad, then click <b>Save &amp; Next</b>.</li>
+        <li>To change your answer to a question that has already been answered, first select that question for answering and then follow the procedure for answering that type of question.</li>
+      </ol>
+
+      <h3>Navigating through sections:</h3>
+      <ol start="11">
+        <li>Sections in this question paper are displayed on the top bar of the screen. Questions in a section can be viewed by clicking on the section name. The section you are currently viewing is highlighted.</li>
+        <li>After clicking the Save &amp; Next button on the last question for a section, you will automatically be taken to the first question of the next section.</li>
+        <li>You can shuffle between sections and questions anytime during the examination as per your convenience, only during the time stipulated.</li>
+        <li>Candidate can view the corresponding section summary as part of the legend that appears in every section above the question palette.</li>
+      </ol>
+
+      <div class="note">
+        Please note all questions will appear in English. Your answers are saved in this browser, so refreshing the page will not lose your progress.
+      </div>
+
+      <label class="decl">
+        <input type="checkbox" id="agree">
+        <span>I have read and understood the instructions. I agree to attempt this mock test honestly within the stipulated time, without using any unfair means or external help.</span>
+      </label>
+
+      <button class="btn-proceed" id="proceedBtn" disabled>PROCEED</button>
+    </div>
+  </section>
+
+  <!-- ============ 3. EXAM SECTION ============ -->
+  <section id="exam" class="hide">
+    <div class="info">
+      <div class="in">
+        <div class="box">
+          <div class="ibox">
+            <svg width="50" height="60" viewBox="0 0 50 60">
+              <circle cx="25" cy="17" r="13" fill="#444"></circle>
+              <path d="M2 58c0-16 10-25 23-25s23 9 23 25z" fill="#444"></path>
+            </svg>
+          </div>
+          <div class="kv">
+            <span class="lbl">Candidate Name</span>: <b id="exName"></b><br>
+            <span class="lbl">Exam Name</span>: <b>JEE-Main</b><br>
+            <span class="lbl">Subject Name</span>: <b>JEE (Main) 2027 Mock Test · Paper 1</b><br>
+            <span class="lbl">Remaining Time</span>: <span class="timepill" id="timer">03:00:00</span>
+          </div>
+        </div>
+        <select class="sel" aria-label="Question language">
+          <option>English</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="exam-main">
+      <!-- Left Question Column -->
+      <div class="qcol">
+        <div class="sections" id="tabs" role="tablist"></div>
+
+        <div class="qtitle">
+          <div>
+            <b id="qno">Question 1:</b>
+            <span class="meta" id="qmeta"></span>
+          </div>
+          <button class="rarr" id="toBottom" title="Go to bottom" aria-label="Go to bottom">↓</button>
+        </div>
+
+        <div class="qarea" id="qarea"></div>
+
+        <div class="qfoot">
+          <div class="btnrow">
+            <button class="b green" id="saveNext">Save &amp; Next</button>
+            <button class="b white" id="clearBtn">Clear</button>
+            <button class="b amber" id="saveMark">Save &amp; Mark for Review</button>
+            <button class="b blue" id="markNext">Mark for Review &amp; Next</button>
+          </div>
+
+          <div class="navbar">
+            <div class="pair">
+              <button class="b white" id="backBtn">&lt;&lt; Back</button>
+              <button class="b white" id="nextBtn">Next &gt;&gt;</button>
+            </div>
+            <button class="rarr" id="toTop" title="Go to top" aria-label="Go to top">↑</button>
+            <button class="b green" id="submitBtn">Submit</button>
+          </div>
+        </div>
+
+        <button class="collapse" id="collapseBtn" title="Collapse / expand question palette" aria-label="Toggle question palette">&gt;</button>
+      </div>
+
+      <!-- Right Question Palette Sidebar -->
+      <aside class="pcol" id="pcol">
+        <button class="b white palclose" id="mClose">Close ✕</button>
+        <div class="legend" id="legend"></div>
+        <div class="psec" id="psec">Physics</div>
+        <div class="palette" id="palette"></div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- ============ 4. RESULTS SECTION ============ -->
+  <section id="results" class="hide"></section>
+
+  <!-- ============ FOOTER & MODAL ============ -->
+  <footer id="foot">© All Rights Reserved - JEE Main Mock Test</footer>
+  <div class="modal hide" id="modal">
+    <div class="mcard" id="mcard"></div>
+  </div>
+
+  <!-- ============ APPLICATION SCRIPT ============ -->
+  <script>
+    /* ===================== BRANDING & EXAM CONFIGURATION ===================== */
+    const BRAND = {
+      name: "JEE Main Mock Test",   // Institute or platform name
+      tagline: "Practice CBT",      // Small green tag under the name
+      initials: "JM",               // Shown in the round logo if no image is set
+      logoUrl: "",                  // e.g. "logo.png" to use a custom logo image
+      footer: "© All Rights Reserved - JEE Main Mock Test"
+    };
+
+    const SUBJ = ["Physics", "Chemistry", "Mathematics"];
+    const DURATION = 3 * 60 * 60 * 1000;
+    const MARK = { correct: 4, wrong: -1 };
+    const STORE = "jee2027-mock-v2";
+
+    /* ===================== QUESTION BANK (75 QUESTIONS) ===================== */
+    const Q = [
+      // Physics (Q1 - Q25)
+      { "n": 1, "s": "Physics", "sec": "A", "t": "If velocity $(V)$, time $(T)$ and force $(F)$ are chosen as fundamental quantities, the dimensional formula of Young's modulus is:", "o": ["$[F\\,V^{2}\\,T^{-2}]$", "$[F\\,V^{-2}\\,T^{-2}]$", "$[F\\,V^{-2}\\,T^{2}]$", "$[F\\,V^{-1}\\,T^{-2}]$"], "ch": "Units & Dimensions" },
+      { "n": 2, "s": "Physics", "sec": "A", "t": "A screw gauge has pitch $0.5$ mm and $50$ divisions on its circular scale. With the studs in contact, the zero of the circular scale lies $4$ divisions <i>below</i> the main-scale reference line. While measuring the diameter of a wire, the main-scale reading is $3.5$ mm and the $27^{\\text{th}}$ circular division coincides with the reference line. The corrected diameter of the wire is:", "o": ["3.81 mm", "3.77 mm", "3.73 mm", "3.69 mm"], "ch": "Experimental Skills (Screw gauge)" },
+      { "n": 3, "s": "Physics", "sec": "A", "t": "A ball is thrown from the top of a $40$ m high tower with a speed of $20$ m/s at $30^\\circ$ above the horizontal. The horizontal distance from the foot of the tower at which it strikes the ground is: $(g=10\\ \\text{m/s}^2)$", "o": ["$40\\sqrt3$ m", "$20\\sqrt3$ m", "60 m", "80 m"], "ch": "Kinematics (Projectile)" },
+      { "n": 4, "s": "Physics", "sec": "A", "t": "An incline of angle $37^\\circ$ is fixed on the floor of a lift that is accelerating upward at $2\\ \\text{m/s}^2$. A block of mass $2$ kg is released from rest on the incline. The coefficient of friction (static and kinetic) between block and incline is $0.5$. The acceleration of the block relative to the incline is: $(g=10\\ \\text{m/s}^2,\\ \\sin37^\\circ=0.6)$", "o": ["$3.2\\ \\text{m/s}^2$", "$2.0\\ \\text{m/s}^2$", "$2.4\\ \\text{m/s}^2$", "$1.6\\ \\text{m/s}^2$"], "ch": "Laws of Motion (Friction, non-inertial frame)" },
+      { "n": 5, "s": "Physics", "sec": "A", "t": "A small bob tied to a light string is whirled in a vertical circle. The tension in the string at the lowest point is $7mg$. The ratio of the tension when the string is horizontal to the tension at the highest point is:", "o": ["3 : 1", "2 : 1", "6 : 1", "4 : 1"], "ch": "Work, Energy & Power (Vertical circle)" },
+      { "n": 6, "s": "Physics", "sec": "A", "t": "A solid sphere rolling without slipping with a speed of $7$ m/s starts moving up a rough incline of inclination $30^\\circ$. The distance it travels along the incline before coming momentarily to rest is: $(g=9.8\\ \\text{m/s}^2)$", "o": ["7.0 m", "3.5 m", "5.0 m", "10.0 m"], "ch": "Rotational Motion (Rolling)" },
+      { "n": 7, "s": "Physics", "sec": "A", "t": "A satellite of mass $m$ revolves in a circular orbit at a height $R$ above the Earth's surface ($R$ = radius of Earth). The minimum energy required to shift it to a circular orbit at a height $3R$ is:", "o": ["$\\dfrac{mgR}{2}$", "$\\dfrac{mgR}{8}$", "$\\dfrac{3mgR}{8}$", "$\\dfrac{mgR}{4}$"], "ch": "Gravitation" },
+      { "n": 8, "s": "Physics", "sec": "A", "t": "Two wires P and Q are made of the same material. P has length $L$ and radius $2r$; Q has length $2L$ and radius $r$. Both are stretched by the same tension within the elastic limit. The ratio of elastic potential energy stored in P to that in Q is:", "o": ["1 : 4", "1 : 2", "1 : 8", "8 : 1"], "ch": "Properties of Solids (Elasticity)" },
+      { "n": 9, "s": "Physics", "sec": "A", "t": "Water flows through a horizontal pipe whose cross-section reduces from $40\\ \\text{cm}^2$ to $10\\ \\text{cm}^2$. The speed of water in the wider part is $1$ m/s. The difference in heights of water in two vertical tubes connected to the wide and narrow parts is: $(\\rho=1000\\ \\text{kg/m}^3,\\ g=10\\ \\text{m/s}^2)$", "o": ["150 cm", "37.5 cm", "7.5 cm", "75 cm"], "ch": "Properties of Liquids (Bernoulli)" },
+      { "n": 10, "s": "Physics", "sec": "A", "t": "Two moles of a monatomic ideal gas undergo a process in which pressure is directly proportional to volume. The heat supplied to the gas to raise its temperature by $100$ K is:", "o": ["$500R$", "$300R$", "$200R$", "$400R$"], "ch": "Thermodynamics" },
+      { "n": 11, "s": "Physics", "sec": "A", "t": "Given below are two statements: one is labelled as Assertion A and the other as Reason R.<br><b>Assertion A:</b> At the same temperature, the average translational kinetic energy per molecule of helium and of nitrogen is the same.<br><b>Reason R:</b> The internal energy of any ideal gas is due only to the translational motion of its molecules.<br>Choose the correct answer from the options given below:", "o": ["Both A and R are true and R is the correct explanation of A", "A is false but R is true", "Both A and R are true but R is NOT the correct explanation of A", "A is true but R is false"], "ch": "Kinetic Theory of Gases" },
+      { "n": 12, "s": "Physics", "sec": "A", "t": "A block of mass $0.5$ kg attached to a spring of force constant $200$ N/m executes SHM of amplitude $A$ on a smooth horizontal surface. The minimum time taken by the block to go from $x=+A$ to $x=-\\dfrac A2$ is:", "o": ["$\\dfrac{\\pi}{30}$ s", "$\\dfrac{\\pi}{15}$ s", "$\\dfrac{\\pi}{60}$ s", "$\\dfrac{\\pi}{20}$ s"], "ch": "Oscillations (SHM)" },
+      { "n": 13, "s": "Physics", "sec": "A", "t": "A point charge $+q$ is placed at the origin and a point charge $-4q$ is placed at $x=3$ m. The electric potential at the point on the $x$-axis where the net electric field is zero is $\\left(k=\\frac{1}{4\\pi\\varepsilon_0}\\right)$:", "o": ["$+\\dfrac{kq}{3}$", "$-\\dfrac{kq}{3}$", "$-\\dfrac{2kq}{3}$", "zero"], "ch": "Electrostatics (Field & Potential)" },
+      { "n": 14, "s": "Physics", "sec": "A", "t": "A parallel-plate air capacitor (plate separation $d$) is connected to a battery. A dielectric slab of dielectric constant $4$ and thickness $\\dfrac d2$ is now inserted between the plates (parallel to them) while the battery remains connected. The percentage increase in the charge on the capacitor is:", "o": ["37.5%", "60%", "80%", "160%"], "ch": "Capacitance (Dielectric)" },
+      { "n": 15, "s": "Physics", "sec": "A", "t": "A very long wire carrying current $I$ is bent into a hairpin shape: two long parallel straight parts joined by a semicircular arc of radius $R$. The magnitude of the magnetic field at the centre of the semicircular arc is:", "o": ["$\\dfrac{\\mu_0I}{2\\pi R}(\\pi+1)$", "$\\dfrac{\\mu_0I}{4R}$", "$\\dfrac{\\mu_0I}{4\\pi R}(\\pi+2)$", "$\\dfrac{\\mu_0I}{4\\pi R}(\\pi-2)$"], "ch": "Magnetic Effects of Current" },
+      { "n": 16, "s": "Physics", "sec": "A", "t": "The electric field of an electromagnetic wave in vacuum is $\\vec E=60\\sin\\left(0.5\\times10^{3}z-1.5\\times10^{11}t\\right)\\hat i$ V/m. The associated magnetic field is:", "o": ["$-2\\times10^{-7}\\sin\\left(0.5\\times10^{3}z-1.5\\times10^{11}t\\right)\\hat j$ T", "$2\\times10^{-7}\\sin\\left(0.5\\times10^{3}z-1.5\\times10^{11}t\\right)\\hat j$ T", "$6\\times10^{-7}\\sin\\left(0.5\\times10^{3}z-1.5\\times10^{11}t\\right)\\hat j$ T", "$2\\times10^{-7}\\sin\\left(0.5\\times10^{3}z-1.5\\times10^{11}t\\right)\\hat k$ T"], "ch": "Electromagnetic Waves" },
+      { "n": 17, "s": "Physics", "sec": "A", "t": "A thin convex lens of focal length $20$ cm is placed in contact with a thin concave lens of focal length $30$ cm. An object is placed $30$ cm in front of the combination. The image formed is:", "o": ["real, inverted, 60 cm on the other side, magnification 2", "real, inverted, 20 cm on the other side, magnification 0.67", "virtual, erect, 12 cm on the same side, magnification 0.4", "virtual, erect, 60 cm on the same side as the object, magnification 2"], "ch": "Ray Optics (Lens combination)" },
+      { "n": 18, "s": "Physics", "sec": "A", "t": "In a Young's double-slit experiment the widths of the two slits are in the ratio $9:1$ (intensity of light from each slit is proportional to its width). The ratio of the intensity at a point where the path difference is $\\dfrac{\\lambda}{4}$ to the maximum intensity in the pattern is:", "o": ["$\\dfrac12$", "$\\dfrac{9}{16}$", "$\\dfrac34$", "$\\dfrac58$"], "ch": "Wave Optics (YDSE intensity)" },
+      { "n": 19, "s": "Physics", "sec": "A", "t": "Photons emitted when electrons in $\\text{He}^{+}$ ions make the transition from $n=4$ to $n=2$ fall on a metal surface of work function $2.2$ eV. The stopping potential for the emitted photoelectrons is:", "o": ["12.4 V", "7.6 V", "8.0 V", "10.2 V"], "ch": "Atoms + Dual Nature (combined)" },
+      { "n": 20, "s": "Physics", "sec": "A", "t": "A Zener diode with breakdown voltage $9$ V is used as a voltage regulator. An input of $15$ V is applied through a series resistance of $200\\ \\Omega$, and a load of $1\\ \\text{k}\\Omega$ is connected across the Zener. The current through the Zener diode is:", "o": ["9 mA", "39 mA", "21 mA", "30 mA"], "ch": "Semiconductors (Zener regulator)" },
+      { "n": 21, "s": "Physics", "sec": "B", "t": "A liquid drop of radius $2$ mm splits isothermally into $1000$ identical droplets. If the surface tension of the liquid is $0.07$ N/m, the work done in the process is $x\\times10^{-6}$ J. The value of $x$ (nearest integer) is ________. $\\left(\\pi=\\frac{22}{7}\\right)$", "o": null, "ch": "Properties of Liquids (Surface energy)" },
+      { "n": 22, "s": "Physics", "sec": "B", "t": "In a metre bridge experiment, with an unknown resistance $X$ in the left gap and $12\\ \\Omega$ in the right gap, the null point is obtained at $40$ cm from the left end. When a resistance $R$ is connected in parallel with $X$, the null point shifts to $25$ cm from the left end. The value of $R$ (in $\\Omega$) is ________.", "o": null, "ch": "Current Electricity (Metre bridge)" },
+      { "n": 23, "s": "Physics", "sec": "B", "t": "A series LCR circuit with $R=30\\ \\Omega$, $X_L=80\\ \\Omega$ and $X_C=40\\ \\Omega$ is connected to an AC source of rms voltage $250$ V. The average power dissipated in the circuit (in W) is ________.", "o": null, "ch": "Alternating Current" },
+      { "n": 24, "s": "Physics", "sec": "B", "t": "A ray of light passes through an equilateral glass prism of refractive index $\\sqrt2$ in the condition of minimum deviation. The angle of minimum deviation (in degrees) is ________.", "o": null, "ch": "Ray Optics (Prism)" },
+      { "n": 25, "s": "Physics", "sec": "B", "t": "A metal rod of length $1$ m rotates with angular speed $20$ rad/s about an axis through one end, perpendicular to a uniform magnetic field of $0.5$ T (the axis is parallel to the field). The ends of the rod are connected through a sliding contact to a resistor of $2.5\\ \\Omega$. Neglecting other resistances, the power dissipated in the resistor (in W) is ________.", "o": null, "ch": "Electromagnetic Induction" },
+
+      // Chemistry (Q26 - Q50)
+      { "n": 26, "s": "Chemistry", "sec": "A", "t": "$2.84$ g of a mixture of $\\text{CaCO}_3$ and $\\text{MgCO}_3$ on strong heating leaves a residue of $1.52$ g (a mixture of CaO and MgO). The percentage by mass of $\\text{MgCO}_3$ in the mixture is: (Molar mass in g mol$^{-1}$: Ca 40, Mg 24, C 12, O 16)", "o": ["41.2%", "35.2%", "29.6%", "70.4%"], "ch": "Some Basic Concepts (Mole concept)" },
+      { "n": 27, "s": "Chemistry", "sec": "A", "t": "Consider the following statements:<br>A. 3d and 4f orbitals both have zero radial nodes.<br>B. The total number of nodes in a 5p orbital is 4.<br>C. The number of angular nodes in a 4d orbital is 2.<br>D. The wave function of a 2s orbital changes sign once as $r$ increases from 0 to $\\infty$.<br>E. The orbital angular momentum of a 4s electron is $\\dfrac{h}{2\\pi}$.<br>Choose the correct answer from the options given below:", "o": ["B and D only", "A, B, C and D only", "A, B, D and E only", "A, C and E only"], "ch": "Atomic Structure" },
+      { "n": 28, "s": "Chemistry", "sec": "A", "t": "The number of paramagnetic species among the following is:<br>$\\text{O}_2,\\ \\text{O}_2^{2-},\\ \\text{N}_2^{+},\\ \\text{B}_2,\\ \\text{C}_2,\\ \\text{NO}^{+},\\ \\text{CN}^{-},\\ \\text{He}_2^{+}$", "o": ["4", "3", "6", "5"], "ch": "Chemical Bonding (MOT)" },
+      { "n": 29, "s": "Chemistry", "sec": "A", "t": "Given below are two statements:<br><b>Statement I:</b> For the reaction $\\text{N}_2(g)+3\\text{H}_2(g)\\to2\\text{NH}_3(g)$ at constant temperature, $\\Delta H<\\Delta U$.<br><b>Statement II:</b> The enthalpy of neutralisation of acetic acid by NaOH is more negative than that of HCl by NaOH.<br>In the light of the above statements, choose the correct answer from the options given below:", "o": ["Both Statement I and Statement II are true", "Statement I is true but Statement II is false", "Both Statement I and Statement II are false", "Statement I is false but Statement II is true"], "ch": "Chemical Thermodynamics" },
+      { "n": 30, "s": "Chemistry", "sec": "A", "t": "The pH of a $0.05$ M aqueous solution of sodium acetate at $25^\\circ$C is: (Given $\\text{p}K_a(\\text{CH}_3\\text{COOH})=4.74$, $\\log2=0.30$)", "o": ["8.72", "9.37", "8.37", "9.02"], "ch": "Ionic Equilibrium (Salt hydrolysis)" },
+      { "n": 31, "s": "Chemistry", "sec": "A", "t": "The EMF of the cell $\\text{Pt}\\,|\\,\\text{H}_2(1\\text{ bar})\\,|\\,\\text{H}^{+}(aq)\\,\\|\\,\\text{Cu}^{2+}(1\\text{ M})\\,|\\,\\text{Cu}$ at 298 K is $0.517$ V. The pH of the solution in the anode compartment is: (Given $E^\\circ_{\\text{Cu}^{2+}/\\text{Cu}}=0.34$ V, $\\frac{2.303RT}{F}=0.059$ V)", "o": ["4", "2", "5", "3"], "ch": "Electrochemistry (Nernst equation)" },
+      { "n": 32, "s": "Chemistry", "sec": "A", "t": "Consider the following statements:<br>A. For a zero-order reaction, the rate constant has the same units as the rate of reaction.<br>B. For a first-order reaction, the time for 75% completion is twice its half-life.<br>C. For a first-order reaction, a plot of $\\ln[A]$ versus $t$ is a straight line with slope $+k$.<br>D. Molecularity of an elementary reaction can be zero.<br>E. For a reaction with positive activation energy, the rate constant increases with temperature.<br>Choose the correct answer from the options given below:", "o": ["A, C and D only", "A, B and E only", "A, B, C and E only", "B, C and E only"], "ch": "Chemical Kinetics" },
+      { "n": 33, "s": "Chemistry", "sec": "A", "t": "Given below are two statements:<br><b>Statement I:</b> The correct order of negative electron gain enthalpy is $\\text{F}>\\text{Cl}>\\text{Br}>\\text{I}$.<br><b>Statement II:</b> The correct order of first ionisation enthalpy is $\\text{B}<\\text{Be}<\\text{C}<\\text{O}<\\text{N}$.<br>In the light of the above statements, choose the correct answer from the options given below:", "o": ["Both Statement I and Statement II are false", "Both Statement I and Statement II are true", "Statement I is false but Statement II is true", "Statement I is true but Statement II is false"], "ch": "Classification of Elements & Periodicity" },
+      { "n": 34, "s": "Chemistry", "sec": "A", "t": "Identify the correct statements:<br>A. The bond dissociation enthalpy of halogens follows the order $\\text{Cl}_2>\\text{Br}_2>\\text{F}_2>\\text{I}_2$.<br>B. Among the hydrides of group 16, $\\text{H}_2\\text{O}$ has the highest boiling point.<br>C. Like sulphur, oxygen commonly exhibits $+4$ and $+6$ oxidation states.<br>D. The thermal stability of group 15 hydrides increases from $\\text{NH}_3$ to $\\text{BiH}_3$.<br>E. Nitrogen differs from the rest of group 15 because of its small size, high electronegativity, high ionisation enthalpy and non-availability of d-orbitals.<br>Choose the correct answer from the options given below:", "o": ["B, D and E only", "A, B, C and E only", "A, C and D only", "A, B and E only"], "ch": "p-Block Elements (General trends)" },
+      { "n": 35, "s": "Chemistry", "sec": "A", "t": "The volume of $0.1$ M $\\text{K}_2\\text{Cr}_2\\text{O}_7$ solution required to completely oxidise the $\\text{Fe}^{2+}$ present in $30$ mL of $0.2$ M Mohr's salt solution in acidic medium is:", "o": ["10 mL", "20 mL", "30 mL", "60 mL"], "ch": "d-Block (Practical: Mohr's salt titration)" },
+      { "n": 36, "s": "Chemistry", "sec": "A", "t": "Match List-I with List-II.<br><table class='mt'><tr><th>List-I (Complex)</th><th>List-II (Spin-only magnetic moment, BM)</th></tr><tr><td>A. $[\\text{Fe(CN)}_6]^{4-}$</td><td>I. 0</td></tr><tr><td>B. $[\\text{CoF}_6]^{3-}$</td><td>II. 2.83</td></tr><tr><td>C. $[\\text{Cr(H}_2\\text{O)}_6]^{3+}$</td><td>III. 3.87</td></tr><tr><td>D. $[\\text{Ni(H}_2\\text{O)}_6]^{2+}$</td><td>IV. 4.90</td></tr></table>Choose the correct answer from the options given below:", "o": ["A-IV, B-I, C-II, D-III", "A-I, B-III, C-IV, D-II", "A-II, B-IV, C-III, D-I", "A-I, B-IV, C-III, D-II"], "ch": "Coordination Compounds (Magnetic moment)" },
+      { "n": 37, "s": "Chemistry", "sec": "A", "t": "Given below are two statements:<br><b>Statement I:</b> Nitration of toluene gives mainly o- and p-nitrotoluene because the $-\\text{CH}_3$ group is activating and ortho/para directing.<br><b>Statement II:</b> Friedel–Crafts methylation of nitrobenzene with $\\text{CH}_3\\text{Cl}$/anhydrous $\\text{AlCl}_3$ gives m-nitrotoluene as the major product.<br>In the light of the above statements, choose the correct answer from the options given below:", "o": ["Statement I is false but Statement II is true", "Both Statement I and Statement II are false", "Statement I is true but Statement II is false", "Both Statement I and Statement II are true"], "ch": "Hydrocarbons (Aromatic substitution)" },
+      { "n": 38, "s": "Chemistry", "sec": "A", "t": "The correct decreasing order of acidic strength of the following acids is:<br>(P) $\\text{CH}_3\\text{COOH}$ &nbsp; (Q) $\\text{HCOOH}$ &nbsp; (R) $\\text{ClCH}_2\\text{COOH}$ &nbsp; (S) $\\text{FCH}_2\\text{COOH}$ &nbsp; (T) $\\text{Cl}_2\\text{CHCOOH}$", "o": ["T > R > S > P > Q", "S > R > T > Q > P", "T > S > R > Q > P", "S > T > R > Q > P"], "ch": "Carboxylic Acids (Acidic strength)" },
+      { "n": 39, "s": "Chemistry", "sec": "A", "t": "An alkene X $(\\text{C}_6\\text{H}_{12})$ on ozonolysis followed by treatment with Zn/H$_2$O gives two carbonyl compounds Y and Z, each containing three carbon atoms. Y gives a positive iodoform test but does not reduce Tollens' reagent, whereas Z reduces Tollens' reagent but does not give the iodoform test. X is:", "o": ["2-Methylpent-2-ene", "2,3-Dimethylbut-2-ene", "Hex-3-ene", "3-Methylpent-2-ene"], "ch": "Hydrocarbons (Ozonolysis)" },
+      { "n": 40, "s": "Chemistry", "sec": "A", "t": "Given below are two statements:<br><b>Statement I:</b> The order of reactivity towards $\\text{S}_\\text{N}2$ reaction is $\\text{CH}_3\\text{Br}>\\text{CH}_3\\text{CH}_2\\text{Br}>(\\text{CH}_3)_2\\text{CHBr}>(\\text{CH}_3)_3\\text{CBr}$.<br><b>Statement II:</b> Hydrolysis of optically active 2-bromobutane by the $\\text{S}_\\text{N}1$ mechanism gives a product with complete inversion of configuration.<br>In the light of the above statements, choose the correct answer from the options given below:", "o": ["Statement I is false but Statement II is true", "Both Statement I and Statement II are true", "Both Statement I and Statement II are false", "Statement I is true but Statement II is false"], "ch": "Haloalkanes (SN1/SN2)" },
+      { "n": 41, "s": "Chemistry", "sec": "A", "t": "An alcohol X $(\\text{C}_4\\text{H}_{10}\\text{O})$ gives turbidity immediately with Lucas reagent at room temperature. X on heating with conc. $\\text{H}_2\\text{SO}_4$ gives an alkene Y. Ozonolysis of Y (followed by Zn/H$_2$O) gives:", "o": ["propanone and methanal", "butanal only", "two molecules of ethanal", "propanal and methanal"], "ch": "Alcohols (Lucas test, dehydration)" },
+      { "n": 42, "s": "Chemistry", "sec": "A", "t": "The number of compounds from the following that undergo the Cannizzaro reaction on treatment with concentrated NaOH is:<br>methanal, ethanal, benzaldehyde, 2,2-dimethylpropanal, 2-methylpropanal, propanone, 4-nitrobenzaldehyde, phenylethanal", "o": ["4", "5", "6", "3"], "ch": "Aldehydes & Ketones (Cannizzaro)" },
+      { "n": 43, "s": "Chemistry", "sec": "A", "t": "Consider the sequence: Aniline $\\xrightarrow{(\\text{CH}_3\\text{CO})_2\\text{O}}$ A $\\xrightarrow{\\text{Br}_2/\\text{CH}_3\\text{COOH}}$ B (major) $\\xrightarrow{\\text{H}_3\\text{O}^+,\\ \\Delta}$ C $\\xrightarrow[\\text{(ii) H}_3\\text{PO}_2]{\\text{(i) NaNO}_2/\\text{HCl},\\ 273\\text{–}278\\text{ K}}$ D. The product D is:", "o": ["4-Bromoaniline", "1,3,5-Tribromobenzene", "4-Bromophenol", "Bromobenzene"], "ch": "Amines & Diazonium Salts" },
+      { "n": 44, "s": "Chemistry", "sec": "A", "t": "Identify the correct statements:<br>A. Sucrose is a non-reducing sugar because its glycosidic linkage joins C1 of $\\alpha$-D-glucose with C2 of $\\beta$-D-fructose.<br>B. Maltose consists of two $\\alpha$-D-glucose units joined through a C1–C4 glycosidic linkage.<br>C. Lactose is made of $\\beta$-D-galactose and $\\beta$-D-glucose units joined through a C1–C4 linkage.<br>D. Vitamin C is a fat-soluble vitamin.<br>E. The sugar present in DNA is $\\beta$-D-2-deoxyribose.<br>Choose the correct answer from the options given below:", "o": ["A, C, D and E only", "B, C and D only", "A, B and D only", "A, B, C and E only"], "ch": "Biomolecules" },
+      { "n": 45, "s": "Chemistry", "sec": "A", "t": "An aqueous solution of a salt gives no precipitate with dil. HCl, and no precipitate with $\\text{H}_2\\text{S}$ in the presence of dil. HCl. With $\\text{NH}_4\\text{Cl}$ and $\\text{NH}_4\\text{OH}$ it gives a white gelatinous precipitate that dissolves in excess NaOH. The original solution gives a white precipitate with $\\text{BaCl}_2$ that is insoluble in dil. HCl. The cation and anion present are respectively:", "o": ["$\\text{Al}^{3+}$ and $\\text{CO}_3^{2-}$", "$\\text{Al}^{3+}$ and $\\text{SO}_4^{2-}$", "$\\text{Zn}^{2+}$ and $\\text{SO}_4^{2-}$", "$\\text{Mg}^{2+}$ and $\\text{SO}_4^{2-}$"], "ch": "Practical Chemistry (Salt analysis)" },
+      { "n": 46, "s": "Chemistry", "sec": "B", "t": "A $0.1$ molal aqueous solution of a weak electrolyte $\\text{AB}_2$ (which dissociates as $\\text{AB}_2\\rightleftharpoons\\text{A}^{2+}+2\\text{B}^-$) freezes at $-0.372^\\circ$C. The percentage degree of dissociation of $\\text{AB}_2$ is ________. ($K_f$ of water $=1.86$ K kg mol$^{-1}$)", "o": null, "ch": "Solutions (van't Hoff factor)" },
+      { "n": 47, "s": "Chemistry", "sec": "B", "t": "At 500 K and a total pressure of 1 atm, $\\text{PCl}_5(g)\\rightleftharpoons\\text{PCl}_3(g)+\\text{Cl}_2(g)$ is 50% dissociated at equilibrium. The magnitude of $\\Delta G^\\circ$ for the reaction at 500 K (in J mol$^{-1}$, nearest integer) is ________. (Take $K_p$ as dimensionless; $R=8.3$ J K$^{-1}$mol$^{-1}$, $\\ln10=2.3$, $\\log3=0.48$)", "o": null, "ch": "Chemical Equilibrium + Thermodynamics" },
+      { "n": 48, "s": "Chemistry", "sec": "B", "t": "The rate constant of a reaction doubles when the temperature is raised from 300 K to 310 K. The activation energy of the reaction (in kJ mol$^{-1}$, nearest integer) is ________. ($R=8.3$ J K$^{-1}$mol$^{-1}$, $\\ln10=2.3$, $\\log2=0.3$)", "o": null, "ch": "Chemical Kinetics (Arrhenius)" },
+      { "n": 49, "s": "Chemistry", "sec": "B", "t": "The number of complexes among the following that exhibit geometrical isomerism is ________.<br>$[\\text{Pt(NH}_3)_2\\text{Cl}_2]$, $[\\text{Co(NH}_3)_5\\text{Cl}]^{2+}$, $[\\text{Co(en)}_2\\text{Cl}_2]^{+}$, $[\\text{Ni(CO)}_4]$, $[\\text{Co(NH}_3)_3\\text{Cl}_3]$, $[\\text{Pt(en)Cl}_2]$, $[\\text{Cr(en)}_3]^{3+}$, $[\\text{Co(NH}_3)_4\\text{Cl}_2]^{+}$", "o": null, "ch": "Coordination Compounds (Isomerism)" },
+      { "n": 50, "s": "Chemistry", "sec": "B", "t": "In Kjeldahl's estimation of nitrogen, the ammonia evolved from $0.6$ g of an organic compound was absorbed in $50$ mL of $0.5$ M $\\text{H}_2\\text{SO}_4$. The residual acid required $60$ mL of $0.5$ M NaOH for neutralisation. The percentage of nitrogen in the compound (nearest integer) is ________.", "o": null, "ch": "Purification & Characterisation (Kjeldahl)" },
+
+      // Mathematics (Q51 - Q75)
+      { "n": 51, "s": "Mathematics", "sec": "A", "t": "Let $[\\,\\cdot\\,]$ denote the greatest integer function. If the domain of the function $f(x)=\\cos^{-1}\\!\\left(\\dfrac{2x-1}{5}\\right)+\\dfrac{1}{\\sqrt{[x]^2-[x]}}$ is $[a,b)\\cup[c,d]$, then $a^2+b^2+c^2+d^2$ is equal to:", "o": ["21", "25", "13", "17"], "ch": "Sets, Relations & Functions" },
+      { "n": 52, "s": "Mathematics", "sec": "A", "t": "The sum of all integral values of $\\lambda$ for which both roots of the equation $x^2-2(\\lambda-1)x+(\\lambda+5)=0$ are real and greater than $1$, is:", "o": ["22", "26", "30", "18"], "ch": "Quadratic Equations" },
+      { "n": 53, "s": "Mathematics", "sec": "A", "t": "Let $S=\\{z\\in\\mathbb{C}: z^2+\\bar z=0\\}$. Then $\\displaystyle\\sum_{z\\in S}|z-1|^2$ is equal to:", "o": ["5", "8", "6", "7"], "ch": "Complex Numbers" },
+      { "n": 54, "s": "Mathematics", "sec": "A", "t": "Let $A$ be a $3\\times3$ real matrix such that $AA^{T}=4I$ and $\\det(A)>0$. Then $\\det\\big(\\operatorname{adj}(\\operatorname{adj}(3A))\\big)$ is equal to:", "o": ["$6^{10}$", "$2^{12}\\cdot3^{9}$", "$6^{12}$", "$6^{9}$"], "ch": "Matrices & Determinants" },
+      { "n": 55, "s": "Mathematics", "sec": "A", "t": "The sum of all values of $\\theta\\in[0,2\\pi]$ for which the system of equations<br>$(\\cos2\\theta)\\,x+y+z=0,\\quad x+(\\cos2\\theta)\\,y+z=0,\\quad x+y+(\\cos2\\theta)\\,z=0$<br>has a non-trivial solution, is:", "o": ["$2\\pi$", "$3\\pi$", "$4\\pi$", "$\\pi$"], "ch": "Matrices & Determinants (Linear Systems)" },
+      { "n": 56, "s": "Mathematics", "sec": "A", "t": "Three positive numbers are in A.P. and their sum is $21$. If $2,\\,3$ and $9$ are added to them respectively, the resulting numbers are in G.P. Then the sum of the first six terms of this G.P. is:", "o": ["315", "320", "630", "305"], "ch": "Sequences & Series (AP–GP)" },
+      { "n": 57, "s": "Mathematics", "sec": "A", "t": "The number of 4-letter words (with or without meaning) that can be formed using the letters of the word <b>EXAMINATION</b> is:", "o": ["2490", "2436", "2454", "1680"], "ch": "Permutations & Combinations" },
+      { "n": 58, "s": "Mathematics", "sec": "A", "t": "In the expansion of $\\left(2x^2-\\dfrac1x\\right)^{9}$, let $\\alpha$ be the coefficient of $x^{6}$ and $\\beta$ be the term independent of $x$. Then $\\dfrac{\\alpha}{\\beta}$ is equal to:", "o": ["12", "4", "6", "8"], "ch": "Binomial Theorem" },
+      { "n": 59, "s": "Mathematics", "sec": "A", "t": "The mean and variance of $10$ observations were found to be $6$ and $5$ respectively. Later it was found that two observations were wrongly recorded as $8$ and $4$ instead of $10$ and $2$ respectively. The correct variance is:", "o": ["6.6", "7.4", "8.2", "5.8"], "ch": "Statistics" },
+      { "n": 60, "s": "Mathematics", "sec": "A", "t": "Bag I contains 3 red and 5 black balls; Bag II contains 4 red and 4 black balls. A fair die is thrown: if it shows 1 or 2, two balls are drawn together from Bag I; otherwise two balls are drawn together from Bag II. If both balls drawn are red, the probability that they came from Bag I is:", "o": ["$\\dfrac15$", "$\\dfrac29$", "$\\dfrac{3}{11}$", "$\\dfrac14$"], "ch": "Probability (Bayes' Theorem)" },
+      { "n": 61, "s": "Mathematics", "sec": "A", "t": "The mid-points of the sides of a triangle are $(3,0)$, $(4,2)$ and $(1,2)$. If $(\\alpha,\\beta)$ is its orthocentre and $(\\gamma,\\delta)$ is its circumcentre, then $\\alpha^2+\\beta^2+\\gamma^2+\\delta^2$ is equal to:", "o": ["14", "16", "20", "18"], "ch": "Straight Lines (Triangle centres)" },
+      { "n": 62, "s": "Mathematics", "sec": "A", "t": "A circle $C$ lies in the first quadrant, touches the $x$-axis at $(4,0)$ and makes an intercept of length $6$ on the $y$-axis. The square of the length of the chord of $C$ along the line $4x-3y+9=0$ is:", "o": ["84", "76", "96", "64"], "ch": "Circle" },
+      { "n": 63, "s": "Mathematics", "sec": "A", "t": "Let $PQ$ be a focal chord of the parabola $y^2=8x$ with $P=(8,8)$. If $O$ is the vertex of the parabola, then $(\\text{length of }PQ)\\times(\\text{area of }\\triangle OPQ)$ is equal to:", "o": ["115", "125", "150", "100"], "ch": "Parabola" },
+      { "n": 64, "s": "Mathematics", "sec": "A", "t": "An ellipse $\\dfrac{x^2}{a^2}+\\dfrac{y^2}{b^2}=1\\ (a>b)$ has the same foci as the hyperbola $\\dfrac{x^2}{16}-\\dfrac{y^2}{9}=1$, and its eccentricity is the reciprocal of the eccentricity of the hyperbola. Then the length of the latus rectum of the ellipse is:", "o": ["$\\dfrac{18}{5}$", "$\\dfrac72$", "$\\dfrac92$", "$\\dfrac94$"], "ch": "Ellipse & Hyperbola" },
+      { "n": 65, "s": "Mathematics", "sec": "A", "t": "The sum of all solutions of the equation $\\sin x+\\sin3x=\\sin2x$ in the interval $[0,2\\pi]$ is:", "o": ["$7\\pi$", "$8\\pi$", "$6\\pi$", "$\\dfrac{13\\pi}{2}$"], "ch": "Trigonometric Equations" },
+      { "n": 66, "s": "Mathematics", "sec": "A", "t": "If $(\\alpha,\\beta,\\gamma)$ is the image of the point $P(6,0,4)$ in the line $\\dfrac{x-1}{1}=\\dfrac{y}{2}=\\dfrac{z-2}{2}$, then $\\alpha^2+\\beta^2+\\gamma^2$ is equal to:", "o": ["32", "36", "44", "40"], "ch": "3D Geometry (Lines)" },
+      { "n": 67, "s": "Mathematics", "sec": "A", "t": "Let $\\vec a=\\hat i+\\hat j+\\hat k$ and $\\vec b=2\\hat i-\\hat j-\\hat k$. If $\\vec c$ is a vector such that $\\vec a\\times\\vec c=\\vec b$ and $\\vec a\\cdot\\vec c=3$, then $\\vec c\\cdot(\\hat i+2\\hat j+3\\hat k)$ is equal to:", "o": ["7", "11", "9", "5"], "ch": "Vector Algebra" },
+      { "n": 68, "s": "Mathematics", "sec": "A", "t": "Let $f(x)=x^3-3ax^2+3(a^2-1)x+1$. If the set of all real values of $a$ for which both the point of local maximum and the point of local minimum of $f$ lie in the interval $(-2,4)$ is $(p,q)$, then $p^2+q^2$ is equal to:", "o": ["5", "10", "13", "8"], "ch": "Application of Derivatives" },
+      { "n": 69, "s": "Mathematics", "sec": "A", "t": "The value of $\\displaystyle\\int_{-\\pi/4}^{\\pi/4}\\frac{x+\\frac{\\pi}{4}}{2-\\cos2x}\\,dx$ is:", "o": ["$\\dfrac{\\pi}{3\\sqrt3}$", "$\\dfrac{\\pi^2}{6\\sqrt3}$", "$\\dfrac{\\pi^2}{3\\sqrt3}$", "$\\dfrac{\\pi^2}{12\\sqrt3}$"], "ch": "Definite Integration" },
+      { "n": 70, "s": "Mathematics", "sec": "A", "t": "Let $y=y(x)$ be the solution of the differential equation $x\\dfrac{dy}{dx}=y+x\\,e^{y/x},\\ x>0$, with $y(1)=0$. Then $y(\\sqrt e)$ is equal to:", "o": ["$\\dfrac{\\sqrt e}{2}\\log_e2$", "$2\\sqrt e\\,\\log_e2$", "$\\sqrt e\\,\\log_e2$", "$\\sqrt e\\,\\log_e3$"], "ch": "Differential Equations (Homogeneous)" },
+      { "n": 71, "s": "Mathematics", "sec": "B", "t": "Let $A=\\{1,2,3,4,5,6\\}$ and let $R$ be the relation on $A$ defined by $(a,b)\\in R$ if and only if $a$ divides $b$. The minimum number of ordered pairs that must be added to $R$ so that it becomes an equivalence relation is ________.", "o": null, "ch": "Sets, Relations & Functions" },
+      { "n": 72, "s": "Mathematics", "sec": "B", "t": "If $\\displaystyle\\sum_{k=1}^{10}\\frac{k}{k^4+k^2+1}=\\frac mn$, where $\\gcd(m,n)=1$, then $m+n$ is equal to ________.", "o": null, "ch": "Sequences & Series" },
+      { "n": 73, "s": "Mathematics", "sec": "B", "t": "If $A$ is the area of the region $\\{(x,y): x^2\\le y\\le |x|+2\\}$, then $3A$ is equal to ________.", "o": null, "ch": "Area under Curves" },
+      { "n": 74, "s": "Mathematics", "sec": "B", "t": "If $d$ is the shortest distance between the lines $\\dfrac{x-1}{1}=\\dfrac{y}{2}=\\dfrac{z+1}{2}$ and $\\dfrac{x-3}{2}=\\dfrac{y-1}{1}=\\dfrac{z-2}{-2}$, then $9d^2$ is equal to ________.", "o": null, "ch": "3D Geometry (Shortest distance)" },
+      { "n": 75, "s": "Mathematics", "sec": "B", "t": "Let $[\\,\\cdot\\,]$ denote the greatest integer function and $h(x)=[x]\\,(x^2-4)+|x^3-1|,\\ x\\in(-3,3)$. If $\\alpha$ is the number of points where $h$ is discontinuous and $\\beta$ is the number of points where $h$ is not differentiable, then $\\alpha+\\beta$ is equal to ________.", "o": null, "ch": "Continuity & Differentiability" }
+    ];
+
+    /* ===================== ENCODED ANSWER KEY & SOLUTIONS ===================== */
+    const K = JSON.parse(
+      decodeURIComponent(
+        escape(
+          atob(
+            "eyJhIjogWzIsIDMsIDEsIDMsIDQsIDEsIDIsIDMsIDQsIDQsIDQsIDEsIDIsIDIsIDMsIDIsIDQsIDQsIDMsIDMsICIzMiIsICI4IiwgIjc1MCIsICIzMCIsICIxMCIsIDMsIDIsIDEsIDIsIDEsIDQsIDIsIDMsIDQsIDEsIDQsIDMsIDMsIDEsIDQsIDEsIDEsIDQsIDQsIDIsICI1MCIsICI0NTgyIiwgIjUzIiwgIjQiLCAiNDciLCA0LCAxLCA0LCAzLCAyLCAxLCAzLCAzLCAyLCAxLCA0LCAxLCAyLCAzLCAxLCAyLCAxLCAyLCAyLCAzLCAiMjIiLCAiMTY2IiwgIjIwIiwgIjI1IiwgIjgiXSwgInMiOiBbIiRZPVxcZnJhY3tGfXtMXjJ9JCBhbmQgJEw9VlQkLCBzbyAkWT1bRlxcLFZeey0yfVReey0yfV0kLiIsICJMQyAkPTAuNS81MD0wLjAxJCBtbS4gWmVybyBiZWxvdyB0aGUgcmVmZXJlbmNlIGxpbmUgJFxcUmlnaHRhcnJvdyQgcG9zaXRpdmUgemVybyBlcnJvciAkPSswLjA0JCBtbS4gT2JzZXJ2ZWQgJD0zLjUrMC4yNz0zLjc3JCBtbTsgY29ycmVjdGVkICQ9My43Ny0wLjA0PTMuNzMkIG1tLiIsICIkLTQwPTEwdC01dF4yXFxSaWdodGFycm93IHReMi0ydC04PTBcXFJpZ2h0YXJyb3cgdD00JCBzLiAkeD0yMFxcY29zMzBeXFxjaXJjXFx0aW1lczQ9NDBcXHNxcnQzJCBtLiIsICJJbiB0aGUgbGlmdCBmcmFtZSAkZ197XFx0ZXh0e2VmZn19PTEyXFwgXFx0ZXh0e20vc31eMiQuIFNpbmNlICRcXHRhbjM3XlxcY2lyYz0wLjc1PlxcbXUkLCB0aGUgYmxvY2sgc2xpZGVzOiAkYT1nX3tcXHRleHR7ZWZmfX0oXFxzaW5cXHRoZXRhLVxcbXVcXGNvc1xcdGhldGEpPTEyKDAuNi0wLjQpPTIuNFxcIFxcdGV4dHttL3N9XjIkLiIsICIkbWcrXFxmcmFje212XzBeMn17TH09N21nXFxSaWdodGFycm93IHZfMF4yPTZnTCQuIEhvcml6b250YWw6ICR2XjI9NGdMXFxSaWdodGFycm93IFQ9NG1nJC4gVG9wOiAkdl4yPTJnTFxcUmlnaHRhcnJvdyBUPVxcZnJhY3ttdl4yfXtMfS1tZz1tZyQuIFJhdGlvICQ0OjEkLiIsICIkXFxmcmFjMTJtdl4yXFxsZWZ0KDErXFxmcmFjMjVcXHJpZ2h0KT1tZ1xcLGRcXHNpbjMwXlxcY2lyY1xcUmlnaHRhcnJvdyBkPVxcZnJhY3swLjdcXHRpbWVzNDl9ezkuOFxcdGltZXMwLjV9PTcuMCQgbS4iLCAiJEU9LVxcZnJhY3tHTW19ezJyfSQuICRcXERlbHRhIEU9XFxmcmFje0dNbX17Mn1cXGxlZnQoXFxmcmFjMXsyUn0tXFxmcmFjMXs0Un1cXHJpZ2h0KT1cXGZyYWN7R01tfXs4Un09XFxmcmFje21nUn17OH0kLiIsICIkVT1cXGZyYWN7Rl4yTH17MkFZfVxccHJvcHRvXFxmcmFje0x9e3JeMn0kLiAkVV9QOlVfUT1cXGZyYWN7TH17NHJeMn06XFxmcmFjezJMfXtyXjJ9PTE6OCQuIiwgIiR2XzI9NCQgbS9zLiAkXFxEZWx0YSBQPVxcZnJhYzEyXFxyaG8odl8yXjItdl8xXjIpPTc1MDAkIFBhICQ9XFxyaW8gZyBoXFxSaWdodGFycm93IGg9MC43NSQgbSAkPTc1JCBjbS4iLCAiJFBcXHByb3B0byBWXFxSaWdodGFycm93IFBWXnstMX09JCBjb25zdCAoJHg9LTEkKS4gJEM9Q19WK1xcZnJhY3tSfXsxLXh9PVxcZnJhYzMyUitcXGZyYWMgUjI9MlIkLiAkUT1uQ1xcRGVsdGEgVD0yXFx0aW1lczJSXFx0aW1lczEwMD00MDBSJC4iLCAiQXZlcmFnZSB0cmFuc2xhdGlvbmFsIEtFICQ9XFxmcmFjMzJrVCQgZm9yIGV2ZXJ5IGlkZWFsIGdhcyAoQSB0cnVlKS4gRm9yIGRpYXRvbWljL3BvbHlhdG9taWMgZ2FzZXMgcm90YXRpb25hbCAoYW5kIHZpYnJhdGlvbmFsKSBlbmVyZ2llcyBhbHNvIGNvbnRyaWJ1dGUsIHNvIFIgaXMgZmFsc2UuIiwgIiRcXG9tZWdhPVxcc3FydHtrL219PTIwJCByYWQvcywgJFQ9XFxmcmFje1xccGl9ezEwfSQgcy4gJHg9QVxcY29zXFxvbWVnYSB0PS1cXGZyYWMgQTJcXFJpZ2h0YXJyb3dcXG9tZWdhIHQ9XFxmcmFjezJcXHBpfTNcXFJpZ2h0YXJyb3cgdD1cXGZyYWMgVDM9XFxmcmFje1xccGl9ezMwfSQgcy4iLCAiTnVsbCBwb2ludCBsaWVzIG91dHNpZGUsIG5lYXIgdGhlIHNtYWxsZXIgY2hhcmdlOiAkXFxmcmFje2txfXtkXjJ9PVxcZnJhY3s0a3F9eyhkKzMpXjJ9XFxSaWdodGFycm93IGQ9MyQsIGkuZS4gJHg9LTMkIG0uICRWPVxcZnJhY3trcX17M30tXFxmcmFjezRrcX17Nn09LVxcZnJhY3trcX17M30kLiIsICIkQz1cXGZyYWN7XFx2YXJlcHNpbG9uXzBBfXtkLXQrdC9LfT1cXGZyYWN7XFx2YXJlcHNpbG9uXzBBfXtkLzIrZC84fT1cXGZyYWM4NUNfMCQuIFdpdGggJFYkIGNvbnN0YW50LCAkUVxccHJvcHRvIEMkOiBpbmNyZWFzZSAkPTYwXFwlJC4iLCAiRWFjaCBzZW1pLWluZmluaXRlIHN0cmFpZ2h0IHBhcnQ6ICRcXGZyYWN7XFxtdV8wSX17NFxccGkgUn0kOyBhcmM6ICRcXGZyYWN7XFxtdV8wSX17NFJ9JDsgYWxsIGluIHRoZSBzYW1lIGRpcmVjdGlvbi4gJEI9XFxmcmFje1xcbXVfMEl9ezJcXHBpIFJ9K1xcZnJhY3tcXG11XzBJfXs0Un09XFxmcmFje1xcbXVfMEl9ezRcXHBpIFJ9KFxccGkrMikkLiIsICJXYXZlIHRyYXZlbHMgYWxvbmcgJCt6JCAoJFxcb21lZ2Evaz0zXFx0aW1lczEwXjgkIG0vcykuICRCXzA9RV8wL2M9MlxcdGltZXMxMF57LTd9JCBULCBhbmQgJFxcaGF0IEVcXHRpbWVzXFxoYXQgQiQgbXVzdCBiZSAkXFxoYXQgayQ6ICRcXGhhdCBpXFx0aW1lc1xcaGF0IGo9XFxoYXQgayQsIHNvICRcXHZlYyBCJCBpcyBhbG9uZyAkK1xcaGF0IGokLiIsICIkXFxmcmFjMUY9XFxmcmFjMXsyMH0tXFxmcmFjMXszMH09XFxmcmFjMXs2MH0kLiAkXFxmcmFjMXY9XFxmcmFjMXs2MH0rXFxmcmFjMXstMzB9PS1cXGZyYWMxezYwfVxcUmlnaHRhcnJvdyB2PS02MCQgY207ICRtPVxcZnJhYyB2dT0yJDogdmlydHVhbCwgZXJlY3QsIG1hZ25pZmllZC4iLCAiJElfMT05SV8wLElfMj1JXzAkLiAkST0xMElfMCs2SV8wXFxjb3NcXHBoaSQ7ICRcXHBoaT1cXGZyYWN7MlxccGl9e1xcbGFtYmRhfVxcY2RvdFxcZnJhY1xcbGFtYmRhND1cXGZyYWNcXHBpMlxcUmlnaHRhcnJvdyBJPTEwSV8wJC4gJElfe1xcbWF4fT0xNklfMCQ7IHJhdGlvICRcXGZyYWM1OCQuIiwgIiRFPTEzLjZaXjJcXGxlZnQoXFxmcmFjMTQtXFxmcmFjMXsxNn1cXHJpZ2h0KT01NC40XFx0aW1lc1xcZnJhY3szfXsxNn09MTAuMiQgZVYuICRLX3tcXG1heH09MTAuMi0yLjI9OC4wJCBlViAkXFxSaWdodGFycm93IFZfMD04LjAkIFYuIiwgIiRJX1M9XFxmcmFjezE1LTl9ezIwMH09MzAkIG1BLCAkSV9MPVxcZnJhY3s5fXsxMDAwfT05JCBtQSwgJElfWj0zMC05PTIxJCBtQS4iLCAiJHI9Ui8xMCQuICRcXERlbHRhIEE9NFxccGkoMTAwMHJeMi1SXjIpPTRcXHBpIFJeMigxMC0xKT0zNlxccGkgUl4yJC4gJFc9MC4wN1xcdGltZXMzNlxcdGltZXNcXGZyYWN7MjJ9N1xcdGltZXM0XFx0aW1lczEwXnstNn1cXGFwcHJveDMxLjdcXHRpbWVzMTBeey02fSQgSiAkXFxSaWdodGFycm93IHhcXGFwcHJveDMyJC4iLCAiJFxcZnJhYyBYezEyfT1cXGZyYWN7NDB9ezYwfVxcUmlnaHRhcnJvdyBYPThcXCBcXE9tZWdhJC4gVGhlbiAkXFxmcmFje1gnfXsxMn09XFxmcmFjezI1fXs3NX1cXFJpZ2h0YXJyb3cgWCc9NFxcIFxcT21lZ2E9XFxmcmFjezhSfXs4K1J9XFxSaWdodGFycm93IFI9OFxcIFxcT21lZ2EkLiIsICIkWj1cXHNxcnR7MzBeMis0MF4yfT01MFxcIFxcT21lZ2EkLCAkSV97XFx0ZXh0e3Jtc319PTUkIEEsICRQPUleMlI9MjVcXHRpbWVzMzA9NzUwJCBXLiIsICIkXFxtdT1cXGZyYWN7XFxzaW5cXGZyYWN7QStcXGRlbHRhX219ezJ9fXtcXHNpblxcZnJhYyBBMn1cXFJpZ2h0YXJyb3dcXHNxcnQyXFxjZG90XFxmcmFjMTI9XFxzaW5cXGZyYWN7NjBeXFxjaXJjK1xcZGVsdGFfbX17Mn1cXFJpZ2h0YXJyb3dcXGZyYWN7NjBeXFxjaXJjK1xcZGVsdGFfbX0yPTQ1XlxcY2lyY1xcUmlnaHRhcnJvd1xcZGVsdGFfbT0zMF5cXGNpcmMkLiIsICIkXFx2YXJlcHNpbG9uPVxcZnJhYzEyQlxcb21lZ2EgbF4yPVxcZnJhYzEyXFx0aW1lczAuNVxcdGltZXMyMFxcdGltZXMxPTUkIFYuICRQPVxcZnJhY3tcXHZhcmVwc2lsb25eMn17Un09XFxmcmFjezI1fXsyLjV9PTEwJCBXLiIsICJMZXQgJHgkIGcgJFxcdGV4dHtDYUNPfV8zJDogJFxcZnJhY3s1Nn17MTAwfXgrXFxmcmFjezQwfXs4NH0oMi44NC14KT0xLjUyXFxSaWdodGFycm93IHg9Mi4wMCQgZy4gJFxcdGV4dHtNZ0NPfV8zPTAuODQkIGcgJD0yOS42XFwlJC4iLCAiUmFkaWFsIG5vZGVzICQ9bi1sLTEkIChBOiAkMCwwJCDinJMpOyB0b3RhbCBub2RlcyAkPW4tMT00JCAoQiDinJMpOyBhbmd1bGFyIG5vZGVzICQ9bD0yJCAoQyDinJMpOyAycyBoYXMgb25lIHJhZGlhbCBub2RlIChEIOKckykuIEZvciAkbD0wJCwgJEw9XFxzcXJ0e2wobCsxKX1cXGZyYWMgaHsyXFxwaX09MCQgKEUg4pyXKS4iLCAiUGFyYW1hZ25ldGljOiAkXFx0ZXh0e099XzIkICgyIHVucGFpcmVkKSwgJFxcdGV4dHtOfV8yXiskICgxKSwgJFxcdGV4dHtCfV8yJCAoMiksICRcXHRleHR7SGV9XzJeKyQgKDEpLiBUaGUgcmVzdCBoYXZlIGFsbCBlbGVjdHJvbnMgcGFpcmVkLiBUb3RhbCAkPTQkLiIsICIkXFxEZWx0YSBIPVxcRGVsdGEgVStcXERlbHRhIG5fZ1JUJCB3aXRoICRcXERlbHRhIG5fZz0tMiQsIHNvICRcXERlbHRhIEg8XFxEZWx0YSBVJCAoSSB0cnVlKS4gUGFydCBvZiB0aGUgaGVhdCBpcyB1c2VkIHRvIGlvbmlzZSB0aGUgd2VhayBhY2lkLCBzbyBuZXV0cmFsaXNhdGlvbiBvZiAkXFx0ZXh0e0NIfV8zXFx0ZXh0e0NPT0h9JCBpcyA8aT5sZXNzPC9pPiBleG90aGVybWljIChJSSBmYWxzZSkuIiwgIiRcXHRleHR7cEh9PTcrXFxmcmFjMTJcXHRleHR7cH1LX2ErXFxmcmFjMTJcXGxvZyBDPTcrMi4zNytcXGZyYWMxMigtMS4zMCk9OC43MiQuIiwgIiRcXHRleHR7SH1fMitcXHRleHR7Q3V9XnsyK31cXHRvMlxcdGV4dHtIfV4rK1xcdGV4dHtDdX0kLCAkbj0yJDogJEU9MC4zNC1cXGZyYWN7MC4wNTl9MlxcbG9nW1xcdGV4dHtIfV4rXV4yPTAuMzQrMC4wNTlcXCxcXHRleHR7cEh9PTAuNTE3XFxSaWdodGFycm93XFx0ZXh0e3BIfT0zJC4iLCAiQSDinJMgKGJvdGggbW9sIEwkXnstMX0kcyReey0xfSQpOyBCIOKckyAoJHRfezc1fT0ydF97MS8yfSQpOyBDIOKclyAoc2xvcGUgJD0tayQpOyBEIOKclyAobW9sZWN1bGFyaXR5ICRcXGdlMSQpOyBFIOKckyAoQXJyaGVuaXVzKS4iLCAiQ2wgaGFzIHRoZSBtb3N0IG5lZ2F0aXZlIGVsZWN0cm9uIGdhaW4gZW50aGFscHkgKHNtYWxsIHNpemUgb2YgRiBjYXVzZXMgaW50ZXItZWxlY3Ryb25pYyByZXB1bHNpb24pOiBJIGZhbHNlLiAkXFx0ZXh0e0lFfV8xJDogQig4MDEpIDwgQmUoODk5KSA8IEMoMTA4NikgPCBPKDEzMTQpIDwgTigxNDAyKSBrSiBtb2wkXnstMX0kOiBJSSB0cnVlLiIsICJBIOKckyAoRiRfMiQgaXMgd2VhayBkdWUgdG8gbG9uZS1wYWlyIHJlcHVsc2lvbik7IEIg4pyTIChILWJvbmRpbmcpOyBDIOKclyAobm8gZC1vcmJpdGFsczsgb3h5Z2VuIHJhcmVseSBleGNlZWRzICsyKTsgRCDinJcgKHN0YWJpbGl0eSBkZWNyZWFzZXMgZG93biB0aGUgZ3JvdXApOyBFIOKcky4iLCAiJFxcdGV4dHtGZX1eezIrfT02JCBtbW9sICQ9NiQgbW1vbCBvZiBlbGVjdHJvbnMuICRcXHRleHR7Q3J9XzJcXHRleHR7T31fN157Mi19JCBhY2NlcHRzIDYgZSReLSQgcGVyIGlvbiwgc28gMSBtbW9sIGlzIG5lZWRlZCAkXFxSaWdodGFycm93IFY9MTAkIG1MLiIsICJBOiBGZSReezIrfSQgZCReNiQsIHN0cm9uZyBmaWVsZCBDTiReLSQgKGxvdyBzcGluKSDihpIgMC4gQjogQ28kXnszK30kIGQkXjYkLCB3ZWFrIGZpZWxkIEYkXi0kIChoaWdoIHNwaW4pIOKGkiA0IHVucGFpcmVkLCA0LjkwLiBDOiBDciReezMrfSQgZCReMyQg4oaSIDMuODcuIEQ6IE5pJF57Mit9JCBkJF44JCDihpIgMiB1bnBhaXJlZCwgMi44My4iLCAiJC1cXHRleHR7Q0h9XzMkIGFjdGl2YXRlcyB2aWEgK0kgYW5kIGh5cGVyY29uanVnYXRpb24gKEkgdHJ1ZSkuIE5pdHJvYmVuemVuZSBpcyBzdHJvbmdseSBkZWFjdGl2YXRlZCBhbmQgZG9lcyBub3QgdW5kZXJnbyBGcmllZGVs4oCTQ3JhZnRzIHJlYWN0aW9ucyAoSUkgZmFsc2UpLiIsICJUd28g4oCTSSBjaGxvcmluZXMgb3V0d2VpZ2ggb25lIEY6ICRcXHRleHR7Q2x9XzJcXHRleHR7Q0hDT09IfSQgKHAkS19hJCAxLjMpID4gJFxcdGV4dHtGQ0h9XzJcXHRleHR7Q09PSH0kICgyLjYpID4gJFxcdGV4dHtDbENIfV8yXFx0ZXh0e0NPT0h9JCAoMi45KSA+IEhDT09IICgzLjc1KSA+ICRcXHRleHR7Q0h9XzNcXHRleHR7Q09PSH0kICg0Ljc2OyArSSBvZiBDSCRfMyQpLiIsICJZID0gcHJvcGFub25lIChtZXRoeWwga2V0b25lLCBubyBUb2xsZW5zKSwgWiA9IHByb3BhbmFsIChhbGRlaHlkZSwgbm8gJFxcdGV4dHtDSH1fM1xcdGV4dHtDT30tJCkuIEpvaW5pbmcgdGhlIGNhcmJvbnlsIGNhcmJvbnM6ICQoXFx0ZXh0e0NIfV8zKV8yXFx0ZXh0e0N9PVxcdGV4dHtDSENIfV8yXFx0ZXh0e0NIfV8zJCA9IDItbWV0aHlscGVudC0yLWVuZS4iLCAiJFxcdGV4dHtTfV9cXHRleHR7Tn0yJCByYXRlIGZhbGxzIHdpdGggc3RlcmljIGNyb3dkaW5nIChJIHRydWUpLiAkXFx0ZXh0e1N9X1xcdGV4dHtOfTEkIHByb2NlZWRzIHZpYSBhIHBsYW5hciBjYXJib2NhdGlvbiwgZ2l2aW5nIChtb3N0bHkpIHJhY2VtaXNhdGlvbiwgbm90IGNvbXBsZXRlIGludmVyc2lvbiAoSUkgZmFsc2UpLiIsICJJbW1lZGlhdGUgdHVyYmlkaXR5IOKHkiAzwrAgYWxjb2hvbDogWCA9IDItbWV0aHlscHJvcGFuLTItb2wuIERlaHlkcmF0aW9uIGdpdmVzICQoXFx0ZXh0e0NIfV8zKV8yXFx0ZXh0e0N9PVxcdGV4dHtDSH1fMiQ7IG96b25vbHlzaXMg4oeSICQoXFx0ZXh0e0NIfV8zKV8yXFx0ZXh0e0NPfStcXHRleHR7SENIT30kLiIsICJBbGRlaHlkZXMgd2l0aG91dCAkXFxhbHBoYSQtSDogbWV0aGFuYWwsIGJlbnphbGRlaHlkZSwgMiwyLWRpbWV0aHlscHJvcGFuYWwsIDQtbml0cm9iZW56YWxkZWh5ZGUgPSA0LiBUaGUgb3RoZXJzIGhhdmUgJFxcYWxwaGEkLUggKGFsZG9sKSBvciBhcmUga2V0b25lcy4iLCAiQWNldHlsYXRpb24gbW9kZXJhdGVzIGFjdGl2YXRpb24sIHNvIGJyb21pbmF0aW9uIGdpdmVzIHAtYnJvbW9hY2V0YW5pbGlkZSAoQik7IGh5ZHJvbHlzaXMg4oaSIDQtYnJvbW9hbmlsaW5lIChDKTsgZGlhem90aXNhdGlvbiBhbmQgcmVkdWN0aW9uIHdpdGggJFxcdGV4dHtIfV8zXFx0ZXh0e1BPfV8yJCByZXBsYWNlcyAkLVxcdGV4dHtOfV8yXiskIGJ5IEgg4oaSIGJyb21vYmVuemVuZS4iLCAiQSwgQiwgQywgRSBhcmUgc3RhbmRhcmQgZmFjdHMuIFZpdGFtaW4gQyAoYXNjb3JiaWMgYWNpZCkgaXMgd2F0ZXItc29sdWJsZSwgc28gRCBpcyB3cm9uZy4iLCAiR3JvdXAgSUlJIHByZWNpcGl0YXRlLCB3aGl0ZSBhbmQgZ2VsYXRpbm91cywgYW1waG90ZXJpYyDih5IgJFxcdGV4dHtBbChPSCl9XzMkLiBXaGl0ZSAkXFx0ZXh0e0JhU099XzQkIGluc29sdWJsZSBpbiBIQ2wg4oeSIHN1bHBoYXRlICgkXFx0ZXh0e0JhQ099XzMkIHdvdWxkIGRpc3NvbHZlKS4iLCAiJGk9XFxmcmFjezAuMzcyfXsxLjg2XFx0aW1lczAuMX09Mj0xKzJcXGFscGhhXFxSaWdodGFycm93XFxhbHBoYT0wLjUkLCBpLmUuIDUwJS4iLCAiJEtfcD1cXGZyYWN7XFxhbHBoYV4yUH17MS1cXGFscGhhXjJ9PVxcZnJhY3swLjI1fXswLjc1fT1cXGZyYWMxMyQuICRcXERlbHRhIEdeXFxjaXJjPS1SVFxcbG4gS19wPVJUXFxsbjM9OC4zXFx0aW1lczUwMFxcdGltZXMyLjNcXHRpbWVzMC40OD00NTgxLjZcXGFwcHJveDQ1ODIkIEogbW9sJF57LTF9JC4iLCAiJFxcbG9nMj1cXGZyYWN7RV9hfXsyLjNSfVxcY2RvdFxcZnJhY3tUXzItVF8xfXtUXzFUXzJ9XFxSaWdodGFycm93IEVfYT0yLjNcXHRpbWVzOC4zXFx0aW1lczAuM1xcdGltZXNcXGZyYWN7MzAwXFx0aW1lczMxMH17MTB9PTUzMjYxJCBKICRcXGFwcHJveDUzJCBrSiBtb2wkXnstMX0kLiIsICJHZW9tZXRyaWNhbCBpc29tZXJzOiBzcXVhcmUtcGxhbmFyICRbXFx0ZXh0e1B0KE5IfV8zKV8yXFx0ZXh0e0NsfV8yXSQgKGNpcy90cmFucyksICRbXFx0ZXh0e0NvKGVuKX1fMlxcdGV4dHtDbH1fMl1eKyQgKGNpcy90cmFucyksICRbXFx0ZXh0e0NvKE5IfV8zKV8zXFx0ZXh0e0NsfV8zXSQgKGZhYy9tZXIpLCAkW1xcdGV4dHtDbyhOSH1fMylfNFxcdGV4dHtDbH1fMl1eKyQgKGNpcy90cmFucykgPSA0LiAkW1xcdGV4dHtQdChlbilDbH1fMl0kIGhhcyBvbmx5IG9uZSBhcnJhbmdlbWVudDsgJFtcXHRleHR7Q3IoZW4pfV8zXV57Myt9JCBzaG93cyBvbmx5IG9wdGljYWwgaXNvbWVyaXNtLiIsICIkXFx0ZXh0e0h9XiskIHRha2VuICQ9MlxcdGltZXMyNT01MCQgbW1vbDsgbGVmdCBvdmVyICQ9MzAkIG1tb2wg4oeSICRcXHRleHR7Tkh9XzM9MjAkIG1tb2wg4oeSIE4gJD0wLjI4JCBnLiAkXFwlXFx0ZXh0e059PVxcZnJhY3swLjI4fXswLjZ9XFx0aW1lczEwMD00Ni43XFxhcHByb3g0NyQuIiwgIiQtMVxcbGUgXFxmcmFjezJ4LTF9ezV9XFxsZSAxXFxSaWdodGFycm93IC0yXFxsZSB4XFxsZSAzJC4gQWxzbyAkW3hdKFt4XS0xKT4wXFxSaWdodGFycm93IFt4XVxcbGUgLTEkIG9yICRbeF1cXGdlIDIkLCBpLmUuICR4PDAkIG9yICR4XFxnZSAyJC4gRG9tYWluICQ9Wy0yLDApXFxjdXBbMiwzXSQsIHNvICQ0KzArNCs5PTE3JC4iLCAiTmVlZCAkRFxcZ2UwJDogJChcXGxhbWJkYS0xKV4yLShcXGxhbWJkYSs1KVxcZ2UwXFxSaWdodGFycm93KFxcbGFtYmRhLTQpKFxcbGFtYmRhKzEpXFxnZTAkOyB2ZXJ0ZXggJFxcbGFtYmRhLTE+MSQ7IGFuZCAkZigxKT04LVxcbGFtYmRhPjAkLiBIZW5jZSAkXFxsYW1iZGFcXGluWzQsOCkkOiAkNCs1KzYrNz0yMiQuIiwgIldpdGggJHo9eCtpeSQ6ICR4XjIteV4yK3g9MCQgYW5kICR5KDJ4LTEpPTAkLiAkeT0wXFxSaWdodGFycm93IHg9MCwtMSQ7ICR4PVxcdGZyYWMxMlxcUmlnaHRhcnJvdyB5PVxccG1cXHRmcmFje1xcc3FydDN9ezJ9JC4gJFM9XFx7MCwtMSxcXHRmcmFjMTJcXHBtXFx0ZnJhY3tcXHNxcnQzfXsyfWlcXH0kOyAkfHotMXxeMj0xLDQsMSwxJDsgc3VtICQ9NyQuIiwgIiQoXFxkZXQgQSleMj00XjNcXFJpZ2h0YXJyb3dcXGRldCBBPTgkLiAkXFxkZXQoM0EpPTI3XFxjZG90OD0yMTY9Nl4zJC4gRm9yIG9yZGVyICRuPTMkLCAkXFxkZXQoXFxvcGVyYXRvcm5hbWV7YWRqfVxcb3BlcmF0b3JuYW1le2Fkan1NKT0oXFxkZXQgTSleeyhuLTEpXjJ9PSg2XjMpXjQ9Nl57MTJ9JC4iLCAiJFxcRGVsdGE9KHMtMSleMihzKzIpJCB3aXRoICRzPVxcY29zMlxcdGhldGEkLiBOb24tdHJpdmlhbCBzb2x1dGlvbiAkXFxSaWdodGFycm93IHM9MSQgKCRzPS0yJCBpbXBvc3NpYmxlKS4gJFxcY29zMlxcdGhldGE9MVxcUmlnaHRhcnJvd1xcdGhldGE9MCxcXHBpLDJcXHBpJDsgc3VtICQ9M1xccGkkLiIsICJOdW1iZXJzICQ3LWQsNyw3K2QkLiAkKDktZCkoMTYrZCk9MTAwXFxSaWdodGFycm93IGReMis3ZC00ND0wXFxSaWdodGFycm93IGQ9NCQgKHBvc2l0aXZlIG51bWJlcnMpLiBHLlAuOiAkNSwxMCwyMCxcXGRvdHMkLCAkU182PTUoMl42LTEpPTMxNSQuIiwgIkxldHRlcnM6IEEsSSxOICh0d2ljZSBlYWNoKSwgRSxYLE0sVCxPIChvbmNlKTogOCBkaXN0aW5jdC4gQWxsIGRpc3RpbmN0OiAke31eOFBfND0xNjgwJC4gT25lIHBhaXIgKyB0d28gZGlmZmVyZW50OiAkM1xcY2RvdHt9XjdDXzJcXGNkb3RcXGZyYWN7NCF9ezIhfT03NTYkLiBUd28gcGFpcnM6ICR7fV4zQ18yXFxjZG90XFxmcmFjezQhfXsyITIhfT0xOCQuIFRvdGFsICQ9MjQ1NCQuIiwgIiRUX3tyKzF9PXt9XjlDX3JcXCwyXns5LXJ9KC0xKV5yIHheezE4LTNyfSQuICR4XjYkOiAkcj00JCwgJFxcYWxwaGE9MTI2XFxjZG90MzI9NDAzMiQuIENvbnN0YW50OiAkcj02JCwgJFxcYmV0YT04NFxcY2RvdDg9NjcyJC4gUmF0aW8gJD02JC4iLCAiJFxcc3VtIHg9NjAkICh1bmNoYW5nZWQgc2luY2UgJDgrND0xMCsyJCksIHNvIG1lYW4gJD02JC4gJFxcc3VtIHheMj0xMCg1KzM2KT00MTBcXHRvNDEwLTY0LTE2KzEwMCs0PTQzNCQuIFZhcmlhbmNlICQ9NDMuNC0zNj03LjQkLiIsICIkUChSUnxJKT1cXGZyYWN7M317Mjh9JCwgJFAoUlJ8SUkpPVxcZnJhY3s2fXsyOH0kLiAkUChJfFJSKT1cXGRmcmFje1xcZnJhYzEzXFxjZG90XFxmcmFjM3syOH19e1xcZnJhYzEzXFxjZG90XFxmcmFjM3syOH0rXFxmcmFjMjNcXGNkb3RcXGZyYWM2ezI4fX09XFxmcmFjezN9ezE1fT1cXGZyYWMxNSQuIiwgIlZlcnRpY2VzOiAkQSgwLDApLEIoNiwwKSxDKDIsNCkkLiBBbHRpdHVkZSBmcm9tICRDJDogJHg9MiQ7IGFsdGl0dWRlIGZyb20gJEEkICgkXFxwZXJwIEJDJCwgc2xvcGUgMSk6ICR5PXgkLiAkSD0oMiwyKSQuIENlbnRyb2lkICRHPShcXGZyYWM4MyxcXGZyYWM0MykkOyAkTz1cXGZyYWN7M0ctSH17Mn09KDMsMSkkIChjaGVjayAkT0FeMj1PQl4yPU9DXjI9MTAkKS4gU3VtICQ9NCs0KzkrMT0xOCQuIiwgIkNlbnRyZSAkKDQscikkLCAkMlxcc3FydHtyXjItMTZ9PTZcXFJpZ2h0YXJyb3cgcj01JC4gRGlzdGFuY2Ugb2YgJCg0LDUpJCBmcm9tIHRoZSBsaW5lICQ9XFxmcmFje3wxNi0xNSs5fH17NX09MiQuIENob3JkJF4yPTQoMjUtNCk9ODQkLiIsICIkYT0yJCwgJFA9KDJ0XjIsNHQpJCB3aXRoICR0PTIkOyBvdGhlciBlbmQgJHQnPS1cXGZyYWMxdCQ6ICRRPShcXGZyYWMxMiwtMikkLiAkUFE9YSh0K1xcZnJhYzF0KV4yPTEyLjUkLiBBcmVhICQ9XFxmcmFjMTJ8OCgtMiktOChcXGZyYWMxMil8PTEwJC4gUHJvZHVjdCAkPTEyNSQuIiwgIkh5cGVyYm9sYTogJGVfaD1cXGZyYWM1NCQsIGZvY2kgJChcXHBtNSwwKSQuIEVsbGlwc2U6ICRlPVxcZnJhYzQ1JCwgJGFlPTVcXFJpZ2h0YXJyb3cgYT1cXGZyYWN7MjV9ezR9JCwgJGJeMj1hXjIoMS1lXjIpPVxcZnJhY3syMjV9ezE2fSQuIExSICQ9XFxmcmFjezJiXjJ9e2F9PVxcZnJhYzkyJC4iLCAiJDJcXHNpbjJ4XFxjb3MgeD1cXHNpbjJ4XFxSaWdodGFycm93XFxzaW4yeCgyXFxjb3MgeC0xKT0wJC4gJFxcc2luMng9MCQ6ICQwLFxcZnJhY1xccGkyLFxccGksXFxmcmFjezNcXHBpfTIsMlxccGkkOyAkXFxjb3MgeD1cXGZyYWMxMiQ6ICRcXGZyYWNcXHBpMyxcXGZyYWN7NVxccGl9MyQuIFN1bSAkPTVcXHBpKzJcXHBpPTdcXHBpJC4iLCAiR2VuZXJhbCBwb2ludCAkRigxK3QsMnQsMisydCkkLiAkXFxvdmVycmlnaHRhcnJvd3tQRn1cXGNkb3QoMSwyLDIpPTl0LTk9MFxcUmlnaHRhcnJvdyB0PTEkLCAkRj0oMiwyLDQpJC4gSW1hZ2UgJD0yRi1QPSgtMiw0LDQpJDsgJDQrMTYrMTY9MzYkLiIsICJMZXQgJFxcdmVjIGM9KHgseSx6KSQuICRcXHZlYyBhXFx0aW1lc1xcdmVjIGM9KHoteSxcXDt4LXosXFw7eS14KT0oMiwtMSwtMSkkIGdpdmVzICR5PXgtMSxcXCB6PXgrMSQ7IHdpdGggJHgreSt6PTMkLCAkeD0xJC4gU28gJFxcdmVjIGM9KDEsMCwyKSQgYW5kIHRoZSBkb3QgcHJvZHVjdCAkPTErMCs2PTckLiIsICIkZicoeCk9M1xcYmlnKHgtKGEtMSlcXGJpZylcXGJpZyh4LShhKzEpXFxiaWcpJDogbG9jYWwgbWF4IGF0ICRhLTEkLCBsb2NhbCBtaW4gYXQgJGErMSQuIE5lZWQgJGEtMT4tMiQgYW5kICRhKzE8NFxcUmlnaHRhcnJvdyBhXFxpbigtMSwzKSQuICRwXjIrcV4yPTErOT0xMCQuIiwgIlRoZSAkeCQtcGFydCBpcyBvZGQsIHNvICRJPVxcZnJhY1xccGk0XFxjZG90MlxcaW50XzBee1xccGkvNH1cXGZyYWN7ZHh9ezItXFxjb3MyeH0kLiBXaXRoICR0PVxcdGFuIHgkOiAkXFxpbnRfMF4xXFxmcmFje2R0fXsxKzN0XjJ9PVxcZnJhY3sxfXtcXHNxcnQzfVxcdGFuXnstMX1cXHNxcnQzPVxcZnJhY3tcXHBpfXszXFxzcXJ0M30kLiAkST1cXGZyYWN7XFxwaV4yfXs2XFxzcXJ0M30kLiIsICIkeT12eCQ6ICR4dic9ZV57dn1cXFJpZ2h0YXJyb3ctZV57LXZ9PVxcbG4geCtDJCwgJEM9LTEkLiBTbyAkZV57LXkveH09MS1cXGxuIHgkLiBBdCAkeD1cXHNxcnQgZSQ6ICRlXnsteS9cXHNxcnQgZX09XFxmcmFjMTJcXFJpZ2h0YXJyb3cgeT1cXHNxcnQgZVxcbG4yJC4iLCAiJHxSfD02KzMrMisxKzErMT0xNCQuIFNpbmNlICQoMSxiKVxcaW4gUiQgZm9yIGV2ZXJ5ICRiJCwgc3ltbWV0cnkgYW5kIHRyYW5zaXRpdml0eSBmb3JjZSBldmVyeSBwYWlyOiB0aGUgc21hbGxlc3QgZXF1aXZhbGVuY2UgcmVsYXRpb24gY29udGFpbmluZyAkUiQgaXMgJEFcXHRpbWVzIEEkICgzNiBwYWlycykuIFJlcXVpcmVkICQ9MzYtMTQ9MjIkLiIsICIka140K2teMisxPShrXjItaysxKShrXjIraysxKSQsIHNvIHRoZSB0ZXJtICQ9XFxmcmFjMTJcXGxlZnRbXFxmcmFjMXtrXjItaysxfS1cXGZyYWMxe2teMitrKzF9XFxyaWdodF0kLiBUZWxlc2NvcGluZzogJFxcZnJhYzEyXFxsZWZ0KDEtXFxmcmFjMXsxMTF9XFxyaWdodCk9XFxmcmFjezU1fXsxMTF9JDsgJG0rbj0xNjYkLiIsICJGb3IgJHhcXGdlMCQ6ICR4XjI9eCsyXFxSaWdodGFycm93IHg9MiQuIEJ5IHN5bW1ldHJ5ICRBPTJcXGludF8wXjIoeCsyLXheMilcXCxkeD0yXFxsZWZ0KDIrNC1cXGZyYWM4M1xccmlnaHQpPVxcZnJhY3syMH17M30kLiAkM0E9MjAkLiIsICIkXFx2ZWMgYl8xXFx0aW1lc1xcdmVjIGJfMj0oMSwyLDIpXFx0aW1lcygyLDEsLTIpPSgtNiw2LC0zKSQsIG1hZ25pdHVkZSAkOSQuICRcXHZlY3tBQn09KDIsMSwzKSQ7ICR8XFx2ZWN7QUJ9XFxjZG90KFxcdmVjIGJfMVxcdGltZXNcXHZlYyBiXzIpfD18LTEyKzYtOXw9MTUkLiAkZD1cXGZyYWN7MTV9ezl9PVxcZnJhYzUzJCwgJDlkXjI9MjUkLiIsICJEaXNjb250aW51aXRpZXMgb2YgJFt4XSh4XjItNCkkIGF0IGludGVnZXJzIHdoZXJlICR4XjItNFxcbmUwJDogJHg9LTEsMCwxJCAoJFxcYWxwaGE9MyQpLiBBdCAkeD1cXHBtMiQgaXQgaXMgY29udGludW91cyBidXQgb25lLXNpZGVkIGRlcml2YXRpdmVzIGRpZmZlciAoJFt4XSQganVtcHMgd2hpbGUgJDJ4XFxuZTAkKTogYXQgJDIkOiAkNCQgdnMgJDgkOyBhdCAkLTIkOiAkMTIkIHZzICQ4JC4gJHx4XjMtMXwkIGFkZHMgb25seSAkeD0xJCAoYWxyZWFkeSBjb3VudGVkKS4gTm90IGRpZmZlcmVudGlhYmxlIGF0ICQtMiwtMSwwLDEsMiQ6ICRcXGJldGE9NSQuIEFuc3dlciAkOCQuIl19"
+          )
+        )
+      )
+    );
+
+    /* ===================== STATE & DOM HELPERS ===================== */
+    let S = null;
+    let draft = null;
+    let tick = null;
+
+    const $ = id => document.getElementById(id);
+    const pad = n => String(n).padStart(2, "0");
+    const firstOf = s => Q.findIndex(q => q.s === s);
+
+    function esc(s) {
+      return String(s).replace(/[&<>"']/g, c => ({
+        "&": "&amp;",
+        "<": "&lt;",
+        ">": "&gt;",
+        '"': "&quot;",
+        "'": "&#39;"
+      }[c]));
+    }
+
+    function show(id) {
+      ["login", "instructions", "exam", "results"].forEach(x => {
+        $(x).classList.toggle("hide", x !== id);
+      });
+      window.scrollTo(0, 0);
+    }
+
+    function math(el) {
+      if (window.renderMathInElement) {
+        renderMathInElement(el, {
+          delimiters: [
+            { left: "$$", right: "$$", display: true },
+            { left: "$", right: "$", display: false }
+          ],
+          throwOnError: false
+        });
+      } else {
+        setTimeout(() => math(el), 200);
+      }
+    }
+
+    function saveS() {
+      try {
+        localStorage.setItem(STORE, JSON.stringify(S));
+      } catch (e) {}
+    }
+
+    function loadS() {
+      try {
+        return JSON.parse(localStorage.getItem(STORE));
+      } catch (e) {
+        return null;
+      }
+    }
+
+    function clearS() {
+      try {
+        localStorage.removeItem(STORE);
+      } catch (e) {}
+    }
+
+    /* ===================== BRANDING & INITIAL SETUP ===================== */
+    $("brandName").textContent = BRAND.name;
+    $("brandTag").textContent = BRAND.tagline;
+    $("brandLogo").innerHTML = BRAND.logoUrl
+      ? `<img src="${esc(BRAND.logoUrl)}" alt="">`
+      : esc(BRAND.initials);
+    $("foot").textContent = BRAND.footer;
+
+    $("homeLink").onclick = e => {
+      e.preventDefault();
+      if (!S || !S.started || S.submitted) {
+        location.reload();
+      }
+    };
+
+    /* ===================== LOGIN & INSTRUCTIONS HANDLERS ===================== */
+    $("uName").addEventListener("input", e => {
+      $("lgName").textContent = e.target.value.trim()
+        ? "[" + e.target.value.trim() + "]"
+        : "[Your Name]";
+    });
+
+    $("loginForm").addEventListener("submit", e => {
+      e.preventDefault();
+      const name = $("uName").value.trim();
+      if (!name) {
+        $("loginHint").textContent = "Please enter your name to proceed";
+        $("uName").focus();
+        return;
+      }
+      S = {
+        name,
+        roll: $("uRoll").value.trim(),
+        started: false,
+        submitted: false
+      };
+      saveS();
+      show("instructions");
+    });
+
+    $("agree").addEventListener("change", e => {
+      $("proceedBtn").disabled = !e.target.checked;
+    });
+
+    $("proceedBtn").addEventListener("click", () => {
+      Object.assign(S, {
+        started: true,
+        endAt: Date.now() + DURATION,
+        cur: 0,
+        ans: Array(Q.length).fill(null),
+        st: Array(Q.length).fill("nv"),
+        auto: false,
+        submittedAt: null
+      });
+      S.st[0] = "na";
+      saveS();
+      enterExam();
+    });
+
+    /* ===================== EXAM ENGINE ===================== */
+    function enterExam() {
+      show("exam");
+      $("exName").textContent = "[" + S.name + "]";
+      $("tabs").innerHTML = SUBJ
+        .map(s => `<button role="tab" data-s="${s}">${s}</button>`)
+        .join("");
+
+      $("tabs").querySelectorAll("button").forEach(b => {
+        b.onclick = () => go(firstOf(b.dataset.s));
+      });
+
+      window.onbeforeunload = e => {
+        if (S && S.started && !S.submitted) {
+          e.preventDefault();
+          e.returnValue = "";
+        }
+      };
+
+      startTimer();
+      render();
+    }
+
+    function startTimer() {
+      clearInterval(tick);
+      const upd = () => {
+        const left = S.endAt - Date.now();
+        if (left <= 0) {
+          $("timer").textContent = "00:00:00";
+          clearInterval(tick);
+          submit(true);
+          return;
+        }
+        const t = Math.ceil(left / 1000);
+        const h = pad(Math.floor(t / 3600));
+        const m = pad(Math.floor((t % 3600) / 60));
+        const s = pad(t % 60);
+        $("timer").textContent = `${h}:${m}:${s}`;
+        $("timer").classList.toggle("low", left < 5 * 60 * 1000);
+      };
+      upd();
+      tick = setInterval(upd, 1000);
+    }
+
+    function render() {
+      const i = S.cur;
+      const q = Q[i];
+      draft = S.ans[i];
+
+      $("tabs").querySelectorAll("button").forEach(b => {
+        b.classList.toggle("on", b.dataset.s === q.s);
+      });
+
+      $("qno").textContent = `Question ${q.n}:`;
+      $("qmeta").textContent = `${q.s} · Section ${q.sec} (${q.sec === "A" ? "MCQ" : "Numerical"}) · +4 / −1`;
+
+      let h = `<div class="qtext">${q.t}</div>`;
+
+      if (q.sec === "A") {
+        h += `<div class="optlbl">Options :</div>` + q.o.map((o, k) => `
+          <label class="opt">
+            <input type="radio" name="opt" value="${k + 1}"${draft === k + 1 ? " checked" : ""}>
+            <span class="on">${k + 1}.</span>
+            <span class="ot">${o}</span>
+          </label>
+        `).join("");
+      } else {
+        const keys = ["7", "8", "9", "4", "5", "6", "1", "2", "3", "0", ".", "-"];
+        h += `
+          <div class="numbox">
+            <div class="optlbl">Answer :</div>
+            <input id="numIn" inputmode="decimal" autocomplete="off" value="${draft ?? ""}" placeholder="Enter numerical value" aria-label="Numerical answer">
+            <div class="keypad">
+              ${keys.map(k => `<button type="button" data-k="${k}">${k}</button>`).join("")}
+              <button type="button" data-k="back">Backspace</button>
+              <button type="button" class="wide" data-k="clr">Clear All</button>
+            </div>
+          </div>
+        `;
+      }
+
+      $("qarea").innerHTML = h;
+      $("qarea").scrollTop = 0;
+
+      if (q.sec === "A") {
+        $("qarea").querySelectorAll("input[name=opt]").forEach(r => {
+          r.onchange = () => {
+            draft = +r.value;
+          };
+        });
+      } else {
+        const inp = $("numIn");
+        const clean = v => v
+          .replace(/[^0-9.\-]/g, "")
+          .replace(/(?!^)-/g, "")
+          .replace(/(\..*)\./g, "$1")
+          .slice(0, 12);
+
+        const set = v => {
+          inp.value = v;
+          draft = v === "" ? null : v;
+        };
+
+        inp.oninput = () => set(clean(inp.value));
+
+        $("qarea").querySelectorAll(".keypad button").forEach(b => {
+          b.onclick = () => {
+            const k = b.dataset.k;
+            if (k === "back") {
+              set(inp.value.slice(0, -1));
+            } else if (k === "clr") {
+              set("");
+            } else if (k === "-") {
+              set(inp.value.startsWith("-") ? inp.value.slice(1) : "-" + inp.value);
+            } else {
+              set(clean(inp.value + k));
+            }
+          };
+        });
+      }
+
+      math($("qarea"));
+      $("backBtn").disabled = i === 0;
+      $("nextBtn").disabled = i === Q.length - 1;
+      palette();
+    }
+
+    function validDraft() {
+      if (draft === null || draft === undefined || draft === "") {
+        return null;
+      }
+      if (Q[S.cur].sec === "B") {
+        const v = String(draft).trim();
+        return /^-?(\d+\.?\d*|\.\d+)$/.test(v) ? v : "bad";
+      }
+      return draft;
+    }
+
+    function go(i) {
+      if (i < 0 || i >= Q.length) return;
+      if (S.st[i] === "nv") S.st[i] = "na";
+      S.cur = i;
+      saveS();
+      render();
+      $("pcol").classList.remove("palopen");
+    }
+
+    function act(kind) {
+      const i = S.cur;
+      const v = validDraft();
+
+      if (v === "bad") {
+        notice("Invalid Answer", "Please enter a valid number (digits, one decimal point and an optional minus sign).");
+        return;
+      }
+
+      if (kind === "saveNext") {
+        S.ans[i] = v;
+        S.st[i] = v === null ? "na" : "an";
+      } else if (kind === "saveMark") {
+        if (v === null) {
+          notice("No Answer Selected", "Please select an option (or enter a value) before using Save &amp; Mark for Review. To mark without answering, use Mark for Review &amp; Next.");
+          return;
+        }
+        S.ans[i] = v;
+        S.st[i] = "am";
+      } else if (kind === "markNext") {
+        S.ans[i] = v;
+        S.st[i] = v === null ? "mr" : "am";
+      } else if (kind === "clear") {
+        S.ans[i] = null;
+        draft = null;
+        S.st[i] = "na";
+        saveS();
+        render();
+        return;
+      }
+
+      saveS();
+      if (i < Q.length - 1) {
+        go(i + 1);
+      } else {
+        render();
+      }
+    }
+
+    function counts(s) {
+      const c = { nv: 0, na: 0, an: 0, mr: 0, am: 0 };
+      Q.forEach((q, i) => {
+        if (!s || q.s === s) c[S.st[i]]++;
+      });
+      return c;
+    }
+
+    function palette() {
+      const s = Q[S.cur].s;
+      const c = counts(s);
+
+      $("legend").innerHTML = `
+        <span class="st nv">${c.nv}</span><span>Not Visited</span>
+        <span class="st na">${c.na}</span><span>Not Answered</span>
+        <span class="st an">${c.an}</span><span>Answered</span>
+        <span class="st mr">${c.mr}</span><span>Marked for Review</span>
+        <span class="st am">${c.am}</span><span class="full">Answered &amp; Marked for Review (will be considered for evaluation)</span>
+      `;
+
+      $("psec").textContent = s;
+
+      const L = {
+        an: "Answered",
+        na: "Not Answered",
+        nv: "Not Visited",
+        mr: "Marked for Review",
+        am: "Answered & Marked for Review"
+      };
+
+      $("palette").innerHTML = Q.map((q, i) => {
+        if (q.s !== s) return "";
+        const curCls = i === S.cur ? " cur" : "";
+        return `<button class="st ${S.st[i]}${curCls}" data-i="${i}" title="Question ${q.n}: ${L[S.st[i]]}" aria-label="Question ${q.n}, ${L[S.st[i]]}">${pad(q.n)}</button>`;
+      }).join("");
+
+      $("palette").querySelectorAll("button").forEach(b => {
+        b.onclick = () => go(+b.dataset.i);
+      });
+    }
+
+    /* ===================== EXAM CONTROLS & NAVIGATION ===================== */
+    $("saveNext").onclick = () => act("saveNext");
+    $("saveMark").onclick = () => act("saveMark");
+    $("markNext").onclick = () => act("markNext");
+    $("clearBtn").onclick = () => act("clear");
+    $("backBtn").onclick = () => go(S.cur - 1);
+    $("nextBtn").onclick = () => go(S.cur + 1);
+
+    $("toBottom").onclick = () => {
+      const a = $("qarea");
+      a.scrollTop = a.scrollHeight;
+      $("submitBtn").scrollIntoView({ block: "end", behavior: "smooth" });
+    };
+
+    $("toTop").onclick = () => {
+      $("qarea").scrollTop = 0;
+      $("qno").scrollIntoView({ block: "start", behavior: "smooth" });
+    };
+
+    $("collapseBtn").onclick = () => {
+      const p = $("pcol");
+      if (matchMedia("(max-width:860px)").matches) {
+        p.classList.remove("collapsed");
+        p.classList.add("palopen");
+        return;
+      }
+      p.classList.toggle("collapsed");
+      $("collapseBtn").textContent = p.classList.contains("collapsed") ? "<" : ">";
+    };
+
+    $("mClose").onclick = () => $("pcol").classList.remove("palopen");
+    $("submitBtn").onclick = confirmSubmit;
+
+    /* ===================== MODAL & SUBMISSION ===================== */
+    function modal(title, body, buttons) {
+      $("mcard").innerHTML = `
+        <div class="mhead">${title}</div>
+        <div class="mbody">${body}</div>
+        <div class="mfoot">
+          ${buttons.map((b, k) => `<button class="b ${b.c}" data-k="${k}">${b.t}</button>`).join("")}
+        </div>
+      `;
+      $("modal").classList.remove("hide");
+
+      $("mcard").querySelectorAll(".mfoot button").forEach(btn => {
+        btn.onclick = () => {
+          $("modal").classList.add("hide");
+          const f = buttons[+btn.dataset.k].f;
+          if (f) f();
+        };
+      });
+
+      $("mcard").querySelector(".mfoot button").focus();
+    }
+
+    function notice(t, m) {
+      modal(t, `<p>${m}</p>`, [{ t: "OK", c: "blue" }]);
+    }
+
+    function confirmSubmit() {
+      const rows = SUBJ.map(s => {
+        const c = counts(s);
+        return `
+          <tr>
+            <td class="l">${s}</td>
+            <td>25</td>
+            <td>${c.an}</td>
+            <td>${c.na}</td>
+            <td>${c.mr}</td>
+            <td>${c.am}</td>
+            <td>${c.nv}</td>
+          </tr>
+        `;
+      }).join("");
+
+      const unsaved = validDraft() !== null && validDraft() !== S.ans[S.cur];
+
+      modal(
+        "Exam Summary",
+        `
+          <div class="tw">
+            <table class="t">
+              <tr>
+                <th class="l">Section Name</th>
+                <th>No. of Questions</th>
+                <th>Answered</th>
+                <th>Not Answered</th>
+                <th>Marked for Review</th>
+                <th>Answered &amp; Marked for Review (will be considered for evaluation)</th>
+                <th>Not Visited</th>
+              </tr>
+              ${rows}
+            </table>
+          </div>
+          ${unsaved ? "<p style='color:#a8352f'>The answer selected on the current question has not been saved and will not be evaluated.</p>" : ""}
+          <p style="text-align:center;font-weight:700">Are you sure you want to submit for final marking? No changes will be allowed after submission.</p>
+        `,
+        [
+          { t: "Yes", c: "green", f: () => submit(false) },
+          { t: "No", c: "white" }
+        ]
+      );
+    }
+
+    function submit(auto) {
+      if (S.submitted) return;
+      clearInterval(tick);
+      S.submitted = true;
+      S.auto = auto;
+      S.submittedAt = Math.min(Date.now(), S.endAt);
+      saveS();
+      window.onbeforeunload = null;
+      showResults();
+
+      if (auto) {
+        notice("Time Up", "Your 3 hours are over. The test has been submitted automatically and only saved answers were evaluated.");
+      }
+    }
+
+    /* ===================== EVALUATION & RESULTS VIEW ===================== */
+    function evaluate() {
+      const rows = Q.map((q, i) => {
+        const given = S.ans[i];
+        const key = K.a[i];
+        let res = "unanswered";
+        let marks = 0;
+
+        if (given !== null && given !== undefined && given !== "") {
+          const ok = q.sec === "A"
+            ? Number(given) === Number(key)
+            : Math.abs(parseFloat(given) - parseFloat(key)) < 1e-9;
+
+          res = ok ? "correct" : "incorrect";
+          marks = ok ? MARK.correct : MARK.wrong;
+        }
+
+        return { i, q, given, key, res, marks };
+      });
+
+      const sum = rs => ({
+        correct: rs.filter(r => r.res === "correct").length,
+        incorrect: rs.filter(r => r.res === "incorrect").length,
+        unanswered: rs.filter(r => r.res === "unanswered").length,
+        score: rs.reduce((a, r) => a + r.marks, 0),
+        max: rs.length * MARK.correct
+      });
+
+      const by = {};
+      SUBJ.forEach(s => {
+        by[s] = sum(rows.filter(r => r.q.s === s));
+      });
+
+      return { rows, T: sum(rows), by };
+    }
+
+    const fmt = (q, v) => (v === null || v === undefined || v === "")
+      ? "—"
+      : (q.sec === "A" ? `Option ${v}` : String(v));
+
+    function band(score, acc, att) {
+      let b = score >= 200
+        ? "Excellent: this score range is typically well above the 99th-percentile zone."
+        : score >= 150
+        ? "Very good: strong command of most chapters."
+        : score >= 100
+        ? "Good: a solid base; target the chapters where you lost marks."
+        : score >= 60
+        ? "Average: revise the high-weightage chapters and practise more timed papers."
+        : "Needs improvement: strengthen concepts chapter by chapter before attempting full-length tests.";
+
+      if (att && acc < 60) {
+        b += " Your accuracy is low, so negative marking cost you significantly; attempt only questions you are reasonably sure of.";
+      }
+      return b;
+    }
+
+    function showResults() {
+      show("results");
+      const { rows, T, by } = evaluate();
+      const att = T.correct + T.incorrect;
+      const acc = att ? (100 * T.correct) / att : 0;
+      const used = Math.max(0, Math.min(DURATION, (S.submittedAt || Date.now()) - (S.endAt - DURATION)));
+      const um = Math.floor(used / 60000);
+      const R = $("results");
+
+      R.innerHTML = `
+        <div class="info">
+          <div class="in">
+            <div class="box">
+              <div class="ibox">
+                <svg width="50" height="60" viewBox="0 0 50 60">
+                  <circle cx="25" cy="17" r="13" fill="#444"/>
+                  <path d="M2 58c0-16 10-25 23-25s23 9 23 25z" fill="#444"/>
+                </svg>
+              </div>
+              <div class="kv">
+                <span class="lbl">Candidate Name</span>: <b>[${esc(S.name)}]</b><br>
+                ${S.roll ? `<span class="lbl">Roll Number</span>: <b>${esc(S.roll)}</b><br>` : ""}
+                <span class="lbl">Exam Name</span>: <b>JEE-Main 2027 Mock Test</b><br>
+                <span class="lbl">Status</span>: <b>${S.auto ? "Auto-submitted (time over)" : "Submitted"}</b> · Time used ${Math.floor(um / 60)}h ${pad(um % 60)}m
+              </div>
+            </div>
+            <div class="ititle">RESULT</div>
+          </div>
+        </div>
+
+        <div class="res">
+          <h2>SCORE CARD</h2>
+          <div class="cards">
+            <div class="card"><div class="v">${T.score} / 300</div><div class="l">Total Marks Obtained</div></div>
+            <div class="card g"><div class="v">${T.correct}</div><div class="l">Correct (+4 each)</div></div>
+            <div class="card r"><div class="v">${T.incorrect}</div><div class="l">Incorrect (−1 each)</div></div>
+            <div class="card"><div class="v">${T.unanswered}</div><div class="l">Unanswered (0)</div></div>
+            <div class="card o"><div class="v">${acc.toFixed(1)}%</div><div class="l">Accuracy (correct ÷ attempted)</div></div>
+            <div class="card"><div class="v">${((100 * Math.max(T.score, 0)) / 300).toFixed(1)}%</div><div class="l">Score Percentage</div></div>
+          </div>
+
+          <p><b>Overall performance:</b> ${band(T.score, acc, att)}</p>
+
+          <h2>SUBJECT-WISE SCORE</h2>
+          <div class="tw">
+            <table class="t">
+              <tr>
+                <th class="l">Subject</th>
+                <th>Correct</th>
+                <th>Incorrect</th>
+                <th>Unanswered</th>
+                <th>Accuracy</th>
+                <th>Marks</th>
+              </tr>
+              ${SUBJ.map(s => {
+                const b = by[s];
+                const a = b.correct + b.incorrect;
+                return `
+                  <tr>
+                    <td class="l">${s}</td>
+                    <td>${b.correct}</td>
+                    <td>${b.incorrect}</td>
+                    <td>${b.unanswered}</td>
+                    <td>${a ? ((100 * b.correct) / a).toFixed(1) : "0.0"}%</td>
+                    <td><b>${b.score}</b> / ${b.max}</td>
+                  </tr>
+                `;
+              }).join("")}
+              <tr>
+                <th class="l">Total</th>
+                <th>${T.correct}</th>
+                <th>${T.incorrect}</th>
+                <th>${T.unanswered}</th>
+                <th>${acc.toFixed(1)}%</th>
+                <th>${T.score} / 300</th>
+              </tr>
+            </table>
+          </div>
+          <p style="font-size:13.5px;color:#555">Marking scheme: +4 correct, −1 incorrect, 0 unanswered (MCQ and Numerical).</p>
+
+          <h2>ANSWER-BY-ANSWER COMPARISON</h2>
+          <div class="filters noprint" id="flt">
+            <button class="b blue" data-f="all">All (75)</button>
+            <button class="b white" data-f="correct">Correct (${T.correct})</button>
+            <button class="b white" data-f="incorrect">Incorrect (${T.incorrect})</button>
+            <button class="b white" data-f="unanswered">Unanswered (${T.unanswered})</button>
+          </div>
+
+          <div class="tw">
+            <table class="t" id="cmp">
+              <tr>
+                <th>Q.No.</th>
+                <th class="l">Subject</th>
+                <th>Type</th>
+                <th>Your Answer</th>
+                <th>Correct Answer</th>
+                <th>Status</th>
+                <th>Marks</th>
+                <th class="l">Solution</th>
+              </tr>
+              ${rows.map(r => `
+                <tr data-r="${r.res}">
+                  <td>${r.q.n}</td>
+                  <td class="l">${r.q.s}</td>
+                  <td>${r.q.sec === "A" ? "MCQ" : "Numerical"}</td>
+                  <td>${fmt(r.q, r.given)}</td>
+                  <td><b>${fmt(r.q, r.key)}</b></td>
+                  <td class="${r.res === "correct" ? "ok" : r.res === "incorrect" ? "bad" : "skip"}">
+                    ${r.res === "correct" ? "Correct" : r.res === "incorrect" ? "Incorrect" : "Not Answered"}
+                  </td>
+                  <td>${r.marks > 0 ? "+" : ""}${r.marks}</td>
+                  <td class="l">
+                    <details>
+                      <summary>View</summary>
+                      <div class="sol">
+                        <div><b>Chapter:</b> ${r.q.ch}</div>
+                        ${K.s[r.i]}
+                      </div>
+                    </details>
+                  </td>
+                </tr>
+              `).join("")}
+            </table>
+          </div>
+
+          <div class="noprint" style="margin-top:22px;display:flex;gap:10px;flex-wrap:wrap;justify-content:center">
+            <button class="b blue" onclick="window.print()">Print / Save as PDF</button>
+            <button class="b green" id="retake">Retake Test</button>
+          </div>
+        </div>
+      `;
+
+      R.querySelectorAll("#flt button").forEach(b => {
+        b.onclick = () => {
+          R.querySelectorAll("#flt button").forEach(x => {
+            x.classList.toggle("blue", x === b);
+            x.classList.toggle("white", x !== b);
+          });
+          R.querySelectorAll("#cmp tr[data-r]").forEach(tr => {
+            tr.classList.toggle("hide", b.dataset.f !== "all" && tr.dataset.r !== b.dataset.f);
+          });
+        };
+      });
+
+      R.querySelectorAll("details").forEach(d => {
+        d.addEventListener("toggle", () => d.open && math(d), { once: true });
+      });
+
+      $("retake").onclick = () => {
+        modal(
+          "Retake Test",
+          "<p>Start a new attempt? Your current result will be cleared from this browser.</p>",
+          [
+            { t: "Yes", c: "green", f: () => { clearS(); location.reload(); } },
+            { t: "No", c: "white" }
+          ]
+        );
+      };
+    }
+
+    /* ===================== BOOTSTRAP ===================== */
+    (function boot() {
+      const saved = loadS();
+      if (saved && saved.name) {
+        S = saved;
+        if (S.submitted) {
+          showResults();
+          return;
+        }
+        if (S.started && Array.isArray(S.ans) && S.ans.length === Q.length) {
+          enterExam();
+          return;
+        }
+        show("instructions");
+        return;
+      }
+      show("login");
+    })();
+  </script>
+</body>
+</html>
